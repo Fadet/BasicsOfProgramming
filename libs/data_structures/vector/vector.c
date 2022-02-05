@@ -35,14 +35,9 @@ vector createVector(const size_t n) {
 void reserve(vector *v, const size_t newCapacity) {
     v->capacity = newCapacity;
     v->size = min2(v->size, v->capacity);
-
-    if (newCapacity == 0)
-        v->data = NULL;
-    else {
-        v->data = (int *) realloc(v->data, sizeof(int) * newCapacity);
-        if (NULL == v->data)
-            raise_bad_allocation();
-    }
+    v->data = (int *) realloc(v->data, sizeof(int) * newCapacity);
+    if (NULL == v->data && newCapacity != 0)
+        raise_bad_allocation();
 }
 
 void clear(vector *v) {
