@@ -33,8 +33,8 @@ vector createVector(const size_t n) {
 }
 
 void reserve(vector *v, const size_t newCapacity) {
-    v->size = min2(v->size, v->capacity);
     v->capacity = newCapacity;
+    v->size = min2(v->size, v->capacity);
 
     if (newCapacity == 0)
         v->data = NULL;
@@ -97,5 +97,3 @@ int *back(const vector *v) {
 int *front(const vector *v) {
     return v->data;
 }
-
-
