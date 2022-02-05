@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures/vector/tests/vector-test.h"
 
 int main() {
-    vector v = createVector(100);
-    printf("%p", v.data);
+    test_vector();
 
     return 0;
 }
