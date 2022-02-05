@@ -32,7 +32,7 @@ vector createVector(const size_t n) {
     return (vector) {(n == 0 ? NULL : data), 0, n};
 }
 
-void reserve(vector *v, const size_t newCapacity) {
+void reserve(vector *const v, const size_t newCapacity) {
     v->capacity = newCapacity;
     v->size = min2(v->size, v->capacity);
     v->data = (int *) realloc(v->data, sizeof(int) * newCapacity);
@@ -40,55 +40,55 @@ void reserve(vector *v, const size_t newCapacity) {
         raise_bad_allocation();
 }
 
-void clear(vector *v) {
+void clear(vector *const v) {
     v->size = 0;
 }
 
-void shrinkToFit(vector *v) {
+void shrinkToFit(vector *const v) {
     reserve(v, v->size);
 }
 
-void deleteVector(vector *v) {
-    free(v->data);
+void deleteVector(vector *const v) {
+    reserve(v, 0);
 }
 
-bool isEmpty(const vector *v) {
+bool isEmpty(const vector *const v) {
     return v->size == 0;
 }
 
-bool isFull(const vector *v) {
+bool isFull(const vector *const v) {
     return v->size == v->capacity;
 }
 
-int getVectorValue(const vector *v, const size_t i) {
+int getVectorValue(const vector *const v, const size_t i) {
     return v->data[i];
 }
 
-void pushBack(vector *v, const int x) {
+void pushBack(vector *const v, const int x) {
     if (isFull(v))
         reserve(v, isEmpty(v) ? 1 : v->capacity * 2);
 
     v->data[v->size++] = x;
 }
 
-void popBack(vector *v) {
+void popBack(vector *const v) {
     if (isEmpty(v))
         raise_empty_vector();
 
     v->size--;
 }
 
-int *atVector(const vector *v, const size_t index) {
+int *atVector(const vector *const v, const size_t index) {
     if (index >= v->size)
         raise_index_error(index);
 
     return v->data + index;
 }
 
-int *back(const vector *v) {
+int *back(const vector *const v) {
     return v->data + v->size - 1;
 }
 
-int *front(const vector *v) {
+int *front(const vector *const v) {
     return v->data;
 }
