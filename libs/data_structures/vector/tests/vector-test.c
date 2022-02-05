@@ -101,6 +101,42 @@ static void test_shrinkToFit_averageCase() {
     deleteVector(&v);
 }
 
+static void test_atVector_notEmptyVector() {
+    vector v = (vector) {(int[]) {1, 2, 3, 4}, 4, 4};
+
+    assert(*atVector(&v, 2) == 3);
+}
+
+static void test_atVector_requestToLastElement() {
+    vector v = (vector) {(int[]) {1, 2, 3, 4}, 4, 4};
+
+    assert(*atVector(&v, 3) == 4);
+}
+
+static void test_back_oneElementInVector() {
+    vector v = (vector) {(int[]) {42}, 1, 1};
+
+    assert(*back(&v) == 42);
+}
+
+static void test_back_averageCase() {
+    vector v = (vector) {(int[]) {1337, 42, 1984}, 3, 3};
+
+    assert(*back(&v) == 1984);
+}
+
+static void test_front_oneElementInVector() {
+    vector v = (vector) {(int[]) {42}, 1, 1};
+
+    assert(*front(&v) == 42);
+}
+
+static void test_front_averageCase() {
+    vector v = (vector) {(int[]) {1337, 42, 1984}, 3, 3};
+
+    assert(*front(&v) == 1337);
+}
+
 void test_vector() {
     test_shrinkToFit_fullVector();
     test_shrinkToFit_averageCase();
@@ -109,4 +145,10 @@ void test_vector() {
     test_pushBack_fullVector();
     test_pushBack_averageCase();
     test_popBack_notEmptyVector();
+    test_atVector_notEmptyVector();
+    test_atVector_requestToLastElement();
+    test_back_oneElementInVector();
+    test_back_averageCase();
+    test_front_oneElementInVector();
+    test_front_averageCase();
 }

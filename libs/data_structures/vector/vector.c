@@ -15,6 +15,11 @@ static void raise_empty_vector() {
     exit(1);
 }
 
+static void raise_index_error(const size_t index) {
+    fprintf(stderr, "IndexError: a[%llu] doesn't exist\n", index);
+    exit(1);
+}
+
 static size_t min2(const size_t x, const size_t y) {
     return x < y ? x : y;
 }
@@ -77,3 +82,20 @@ void popBack(vector *v) {
 
     v->size--;
 }
+
+int *atVector(const vector *v, const size_t index) {
+    if (index >= v->size)
+        raise_index_error(index);
+
+    return v->data + index;
+}
+
+int *back(const vector *v) {
+    return v->data + v->size - 1;
+}
+
+int *front(const vector *v) {
+    return v->data;
+}
+
+

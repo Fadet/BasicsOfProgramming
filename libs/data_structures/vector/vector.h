@@ -46,4 +46,14 @@ void pushBack(vector *v, int x);
 // deletes the last element of v
 void popBack(vector *v);
 
+// returns a pointer of index element of v
+// raises an error if index is invalid
+int *atVector(const vector *v, size_t index);
+
+// returns a pointer of the last element of v
+int *back(const vector *v);
+
+// returns a pointer of the first element of v
+int *front(const vector *v);
+
 #endif //LABS_LIBS_VECTOR_H
