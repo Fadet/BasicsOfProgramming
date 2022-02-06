@@ -82,5 +82,21 @@ void popBackV(vectorVoid *const v) {
 void pushBackV(vectorVoid *const v, const void *const source) {
     if (isFullV(v))
         reserveV(v, isEmptyV(v) ? 1 : v->capacity * 2);
+
     setVectorValueV(v, v->size++, source);
+}
+
+void *atVectorV(const vectorVoid *v, const size_t index) {
+    if (index >= v->size)
+        raise_index_error(index);
+
+    return (char *) v->data + index * v->baseTypeSize;
+}
+
+void *backV(const vectorVoid *const v) {
+    return atVectorV(v, v->size - 1);
+}
+
+void *frontV(const vectorVoid *const v) {
+    return atVectorV(v, 0);
 }

@@ -44,11 +44,21 @@ void getVectorValueV(const vectorVoid *v, size_t i, void *destination);
 // writes from address of source the i-th value of v
 void setVectorValueV(vectorVoid *v, size_t i, const void *source);
 
-// adds value from the source to the end of v
+// adds value from source to the end of v
 // extends space twice if v is full
 void pushBackV(vectorVoid *v, const void *source);
 
 // deletes the last element of v
 void popBackV(vectorVoid *v);
+
+// returns a pointer of index element of v
+// raises an error if index is invalid
+void *atVectorV(const vectorVoid *v, size_t index);
+
+// returns a pointer of the last element of v
+void *backV(const vectorVoid *v);
+
+// returns a pointer of the first element of v
+void *frontV(const vectorVoid *v);
 
 #endif //LABS_LIBS_VECTORVOID_H

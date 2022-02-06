@@ -86,9 +86,9 @@ int *atVector(const vector *const v, const size_t index) {
 }
 
 int *back(const vector *const v) {
-    return v->data + v->size - 1;
+    return atVector(v, v->size - 1);
 }
 
 int *front(const vector *const v) {
-    return v->data;
+    return atVector(v, 0);
 }
