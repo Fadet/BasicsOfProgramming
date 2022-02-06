@@ -27,7 +27,7 @@ void clear(vector *v);
 // shrinks the capacity of v to its size
 void shrinkToFit(vector *v);
 
-// frees the data of v
+// sets v to the empty vector
 void deleteVector(vector *v);
 
 // returns true if size of v is zero else returns false
