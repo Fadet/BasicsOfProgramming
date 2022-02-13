@@ -40,4 +40,10 @@ void outputMatrix(matrix m);
 // prints array arrayOfMatrices of size nMatrices to stdout
 void outputMatrices(const matrix *arrayOfMatrices, int nMatrices);
 
+// swaps i-th and j-th rows of matrix m
+void swapRows(matrix m, int i, int j);
+
+// swaps i-th and j-th columns of matrix m
+void swapColumns(matrix m, int i, int j);
+
 #endif //LABS_LIBS_MATRIX_H
