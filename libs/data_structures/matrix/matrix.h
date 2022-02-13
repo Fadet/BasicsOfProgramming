@@ -16,4 +16,16 @@ typedef struct position {
     int colIndex;
 } position;
 
+// returns an empty matrix of size nRows * nCols
+matrix getMemMatrix(int nRows, int nCols);
+
+// returns an array of size nMatrices that contains matrices of size nRows * nCols
+matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
+
+// frees the memory given to the matrix m
+void freeMemMatrix(matrix m);
+
+// frees the memory of the arrayOfMatrices of size nMatrices
+void freeMemMatrices(matrix *arrayOfMatrices, int nMatrices);
+
 #endif //LABS_LIBS_MATRIX_H
