@@ -28,4 +28,16 @@ void freeMemMatrix(matrix m);
 // frees the memory of the arrayOfMatrices of size nMatrices
 void freeMemMatrices(matrix *arrayOfMatrices, int nMatrices);
 
+// inputs values to matrix m
+void inputMatrix(matrix m);
+
+// inputs array arrayOfMatrices of size nMatrices
+void inputMatrices(matrix *arrayOfMatrices, int nMatrices);
+
+// prints matrix m to stdout
+void outputMatrix(matrix m);
+
+// prints array arrayOfMatrices of size nMatrices to stdout
+void outputMatrices(const matrix *arrayOfMatrices, int nMatrices);
+
 #endif //LABS_LIBS_MATRIX_H
