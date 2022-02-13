@@ -2,10 +2,6 @@
 // Created by User on 05.02.2022.
 //
 
-//
-// Created by User on 02.02.2022.
-//
-
 #include "vectorVoid-test.h"
 #include "../vectorVoid.h"
 #include <assert.h>
