@@ -46,4 +46,13 @@ void swapRows(matrix m, int i, int j);
 // swaps i-th and j-th columns of matrix m
 void swapColumns(matrix m, int i, int j);
 
+// sorts rows of matrix m by a non-increasing value of criteria
+void insertionSortRowsMatrixByRowCriteria(matrix m,
+                                          int (*criteria) (int *, int));
+
+// sorts columns of matrix m by a non-increasing value of criteria
+void insertionSortColsMatrixByColCriteria(matrix m,
+                                          int (*criteria) (int *, int));
+
+
 #endif //LABS_LIBS_MATRIX_H

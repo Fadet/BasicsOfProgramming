@@ -7,22 +7,23 @@
 #include <stdio.h>
 #include "../../algorithms/algorithm.h"
 
-static void raise(const char * const error) {
-    fprintf(stderr,"%s\n", error);
+#define MEM_NULL(mem) \
+    if(NULL == mem) raise("bad allocation")
+
+static void raise(const char *const error) {
+    fprintf(stderr, "%s\n", error);
     exit(1);
 }
 
 matrix getMemMatrix(const int nRows, const int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
 
-    if (NULL == values)
-        raise("bad allocation");
+    MEM_NULL(values);
 
     for (int i = 0; i < nRows; ++i)
         values[i] = (int *) malloc(sizeof(int) * nCols);
 
-    if (NULL == values[nRows - 1])
-        raise("bad allocation");
+    MEM_NULL(values[nRows - 1]);
 
     return (matrix) {values, nRows, nCols};
 }
@@ -30,8 +31,7 @@ matrix getMemMatrix(const int nRows, const int nCols) {
 matrix *getMemArrayOfMatrices(const int nMatrices, const int nRows, const int nCols) {
     matrix *arrayOfMatrices = (matrix *) malloc(sizeof(matrix) * nMatrices);
 
-    if (NULL == arrayOfMatrices)
-        raise("bad allocation");
+    MEM_NULL(arrayOfMatrices);
 
     for (int i = 0; i < nMatrices; ++i)
         arrayOfMatrices[i] = getMemMatrix(nRows, nCols);
@@ -89,7 +89,7 @@ void swapRows(matrix m, const int i, const int j) {
     swap(&m.values[i], &m.values[j], sizeof(int *));
 }
 
-void swapColumns(matrix m, int i, int j) {
+void swapColumns(matrix m, const int i, const int j) {
     if (i <= m.nCols || j <= m.nCols)
         raise("index error");
 
@@ -97,3 +97,55 @@ void swapColumns(matrix m, int i, int j) {
     for (int k = 0; k < rows; ++k)
         swap(&m.values[k][i], &m.values[k][j], sizeof(int));
 }
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+    int *criteriaValues = (int *) malloc(sizeof(int) * rows);
+
+    MEM_NULL(criteriaValues);
+
+    for (int i = 0; i < rows; ++i)
+        criteriaValues[i] = criteria(m.values[i], cols);
+
+    for (int i = 1; i < cols; ++i) {
+        int j = i;
+        while (j != 0 && criteriaValues[j - 1] > criteriaValues[j]) {
+            swapRows(m, j - 1, j);
+            swap(criteriaValues + j - 1, criteriaValues + j, sizeof(int));
+            j--;
+        }
+    }
+
+    free(criteriaValues);
+}
+
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+    int cols = m.nCols;
+    int rows = m.nRows;
+    int *criteriaValues = (int *) malloc(cols * sizeof(int));
+    int *currentCol = (int *) malloc(rows * sizeof(int));
+    
+    MEM_NULL(criteriaValues);
+    MEM_NULL(currentCol);
+
+    for (int i = 0; i < cols; ++i) {
+        for (int j = 0; j < rows; ++j) 
+            currentCol[j] = m.values[j][i];
+        criteriaValues[i] = criteria(currentCol, rows);
+    }
+
+    free(currentCol);
+
+    for (int i = 1; i < rows; ++i) {
+        int j = i;
+        while (j != 0 && criteriaValues[j - 1] > criteriaValues[j]) {
+            swapColumns(m, j - 1, j);
+            swap(criteriaValues + j - 1, criteriaValues + j, sizeof(int));
+            j--;
+        }
+    }
+
+    free(criteriaValues);
+}
+
