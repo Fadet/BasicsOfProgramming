@@ -5,6 +5,7 @@
 #include "matrix.h"
 #include <malloc.h>
 #include <stdio.h>
+#include <memory.h>
 #include "../../algorithms/algorithm.h"
 
 #define MEM_NULL(mem) \
@@ -98,7 +99,7 @@ void swapColumns(matrix m, const int i, const int j) {
         swap(&m.values[k][i], &m.values[k][j], sizeof(int));
 }
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*const criteria)(int *const, const int)) {
     int rows = m.nRows;
     int cols = m.nCols;
     int *criteriaValues = (int *) malloc(sizeof(int) * rows);
@@ -120,17 +121,17 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
     free(criteriaValues);
 }
 
-void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+void insertionSortColsMatrixByColCriteria(matrix m, int (*const criteria)(int *const, const int)) {
     int cols = m.nCols;
     int rows = m.nRows;
     int *criteriaValues = (int *) malloc(cols * sizeof(int));
     int *currentCol = (int *) malloc(rows * sizeof(int));
-    
+
     MEM_NULL(criteriaValues);
     MEM_NULL(currentCol);
 
     for (int i = 0; i < cols; ++i) {
-        for (int j = 0; j < rows; ++j) 
+        for (int j = 0; j < rows; ++j)
             currentCol[j] = m.values[j][i];
         criteriaValues[i] = criteria(currentCol, rows);
     }
@@ -149,3 +150,42 @@ void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
     free(criteriaValues);
 }
 
+bool isSquareMatrix(const matrix m) {
+    return m.nRows == m.nCols;
+}
+
+bool twoMatricesEqual(const matrix m1, const matrix m2) {
+    if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
+        return false;
+
+    for (int i = 0; i < m1.nRows; ++i)
+        if (!memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols))
+            return false;
+    return true;
+}
+
+bool isEMatrix(const matrix m) {
+    if (!isSquareMatrix(m))
+        return false;
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j)
+            if (i == j && m.values[i][j] != 1 || m.values[i][j] != 0)
+                return false;
+    return true;
+}
+
+bool isSymmetricMatrix(const matrix m) {
+    if (!isSquareMatrix(m))
+        return false;
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j)
+            if (m.values[i][j] != m.values[j][i])
+                return false;
+    return true;
+}

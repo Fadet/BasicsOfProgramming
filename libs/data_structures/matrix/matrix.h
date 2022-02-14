@@ -5,6 +5,8 @@
 #ifndef LABS_LIBS_MATRIX_H
 #define LABS_LIBS_MATRIX_H
 
+#include <stdbool.h>
+
 typedef struct matrix {
     int **values;
     int nRows;
@@ -54,5 +56,16 @@ void insertionSortRowsMatrixByRowCriteria(matrix m,
 void insertionSortColsMatrixByColCriteria(matrix m,
                                           int (*criteria) (int *, int));
 
+// returns true if matrix m has equal amount of rows and columns else returns false
+bool isSquareMatrix(matrix m);
+
+// returns true if matrices m1 and m2 equal else returns false
+bool twoMatricesEqual(matrix m1, matrix m2);
+
+// returns true if matrix m is identity else returns false
+bool isEMatrix(matrix m);
+
+// returns true if matrix is symmetric else returns false
+bool isSymmetricMatrix(matrix m);
 
 #endif //LABS_LIBS_MATRIX_H
