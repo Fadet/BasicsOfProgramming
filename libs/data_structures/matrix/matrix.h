@@ -60,12 +60,28 @@ void insertionSortColsMatrixByColCriteria(matrix m,
 bool isSquareMatrix(matrix m);
 
 // returns true if matrices m1 and m2 equal else returns false
-bool twoMatricesEqual(matrix m1, matrix m2);
+bool areTwoMatricesEqual(matrix m1, matrix m2);
 
 // returns true if matrix m is identity else returns false
 bool isEMatrix(matrix m);
 
-// returns true if matrix is symmetric else returns false
+// returns true if matrix m is symmetric else returns false
 bool isSymmetricMatrix(matrix m);
+
+// transposes square matrix m
+void transposeSquareMatrix(matrix m);
+
+// returns position of the minimum element in matrix m
+position getMinValuePos(matrix m);
+
+// returns position of the maximum element in matrix m
+position getMaxValuePos(matrix m);
+
+// returns matrix m of size nRows * nCols built from array values
+matrix createMatrixFromArray(const int *values, int nRows, int nCols);
+
+// returns array of matrices of size nMatrices built from array values
+// size of a matrix - nRows * nCols
+matrix *createArrayOfMatricesFromArray(const int *values, int nMatrices, int nRows, int nCols);
 
 #endif //LABS_LIBS_MATRIX_H

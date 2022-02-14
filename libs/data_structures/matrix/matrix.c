@@ -154,7 +154,7 @@ bool isSquareMatrix(const matrix m) {
     return m.nRows == m.nCols;
 }
 
-bool twoMatricesEqual(const matrix m1, const matrix m2) {
+bool areTwoMatricesEqual(matrix m1, matrix m2) {
     if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
         return false;
 
@@ -188,4 +188,75 @@ bool isSymmetricMatrix(const matrix m) {
             if (m.values[i][j] != m.values[j][i])
                 return false;
     return true;
+}
+
+void transposeSquareMatrix(matrix m) {
+    if (!isSquareMatrix(m))
+        raise("non-square matrix is given");
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 0; i < rows; ++i)
+        for (int j = i; j < cols; ++j)
+            if (i != j)
+                swap(&m.values[i][j], &m.values[j][i], sizeof(int));
+}
+
+position getMinValuePos(const matrix m) {
+    int min = m.values[0][0];
+    position pos = (position) {0, 0};
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j) {
+            int currentElement = m.values[i][j];
+            if (currentElement < min) {
+                min = currentElement;
+                pos = (position) {i, j};
+            }
+        }
+
+    return pos;
+}
+
+position getMaxValuePos(const matrix m) {
+    int max = m.values[0][0];
+    position pos = (position) {0, 0};
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j) {
+            int currentElement = m.values[i][j];
+            if (currentElement > max) {
+                max = currentElement;
+                pos = (position) {i, j};
+            }
+        }
+
+    return pos;
+}
+
+matrix createMatrixFromArray(const int *const values, const int nRows, const int nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for (int i = 0; i < nRows; ++i)
+        for (int j = 0; j < nCols; ++j)
+            m.values[i][j] = values[k++];
+
+    return m;
+}
+
+matrix *createArrayOfMatricesFromArray(const int * const values, const int nMatrices, const int nRows, const int nCols) {
+    matrix *arrayOfMatrices = getMemArrayOfMatrices(nMatrices, nRows, nCols);
+
+    int l = 0;
+    for (int i = 0; i < nMatrices; ++i)
+        for (int j = 0; j < nRows; ++j)
+            for (int k = 0; k < nCols; ++k)
+                arrayOfMatrices[i].values[j][k] = values[l++];
+
+    return arrayOfMatrices;
 }
