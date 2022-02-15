@@ -22,7 +22,8 @@ typedef struct position {
 matrix getMemMatrix(int nRows, int nCols);
 
 // returns an array of size nMatrices that contains matrices of size nRows * nCols
-matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
+matrix *getMemArrayOfMatrices(int nMatrices,
+                              int nRows, int nCols);
 
 // frees the memory given to the matrix m
 void freeMemMatrix(matrix m);
@@ -50,11 +51,11 @@ void swapColumns(matrix m, int i, int j);
 
 // sorts rows of matrix m by a non-increasing value of criteria
 void insertionSortRowsMatrixByRowCriteria(matrix m,
-                                          int (*criteria) (int *, int));
+                                          int (*criteria) (const int *, int));
 
 // sorts columns of matrix m by a non-increasing value of criteria
 void insertionSortColsMatrixByColCriteria(matrix m,
-                                          int (*criteria) (int *, int));
+                                          int (*criteria) (const int *, int));
 
 // returns true if matrix m has equal amount of rows and columns else returns false
 bool isSquareMatrix(matrix m);
@@ -78,10 +79,13 @@ position getMinValuePos(matrix m);
 position getMaxValuePos(matrix m);
 
 // returns matrix m of size nRows * nCols built from array values
-matrix createMatrixFromArray(const int *values, int nRows, int nCols);
+matrix createMatrixFromArray(const int *values,
+                             int nRows, int nCols);
 
 // returns array of matrices of size nMatrices built from array values
 // size of a matrix - nRows * nCols
-matrix *createArrayOfMatricesFromArray(const int *values, int nMatrices, int nRows, int nCols);
+matrix *createArrayOfMatricesFromArray(const int *values,
+                                       int nMatrices,
+                                       int nRows, int nCols);
 
 #endif //LABS_LIBS_MATRIX_H

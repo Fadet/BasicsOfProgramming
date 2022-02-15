@@ -71,7 +71,7 @@ int countIf(const int *a, const size_t n, int (*f)(int)) {
     return counter;
 }
 
-void swap(int *x, int *y) {
+void swapInt(int *x, int *y) {
     int t = *x;
     *x = *y;
     *y = t;
@@ -79,7 +79,7 @@ void swap(int *x, int *y) {
 
 void reverseArray(int *a, const size_t n) {
     for (size_t i = 0, j = n - 1; i < j; i++, j--)
-        swap(&a[i], &a[j]);
+        swapInt(&a[i], &a[j]);
 }
 
 int isPalindrome(const int *a, const size_t n) {
@@ -98,7 +98,7 @@ void selectionSort(int *a, const size_t n, int (*f)(int, int)) {
             if (f(a[j], a[currentIndex]))
                 currentIndex = j;
         }
-        swap(&a[i], &a[currentIndex]);
+        swapInt(&a[i], &a[currentIndex]);
     }
 }
 
@@ -136,7 +136,7 @@ void deleteByPos(int *a, size_t *n, const size_t pos) {
 }
 
 void deleteByPosDisordered(int *a, size_t *n, const size_t pos) {
-    swap(&a[pos], &a[--*n]);
+    swapInt(&a[pos], &a[--*n]);
 }
 
 void cyclicLeftShift(int *a, const size_t n, size_t offset) {
@@ -212,7 +212,7 @@ int getSequenceType(const int *a, const size_t n) {
         return DISORDERED;
 }
 
-int arraySum(const int *a, const size_t n) {
+int arraySum(const int *a, const int n) {
     int sum = 0;
     for (size_t i = 0; i < n; i++) {
         sum += a[i];

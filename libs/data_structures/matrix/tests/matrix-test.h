@@ -5,4 +5,6 @@
 #ifndef LABS_LIBS_MATRIX_TEST_H
 #define LABS_LIBS_MATRIX_TEST_H
 
+void test_matrix();
+
 #endif //LABS_LIBS_MATRIX_TEST_H

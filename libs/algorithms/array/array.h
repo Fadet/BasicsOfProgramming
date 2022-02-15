@@ -46,7 +46,7 @@ int countNegative(const int *a, const size_t n);
 int countIf(const int *a, const size_t n, int (*f)(int));
 
 // swaps x and y by their values
-void swap(int *x, int *y);
+void swapInt(int *x, int *y);
 
 // reverses array a of size n
 void reverseArray(int *a, const size_t n);
@@ -101,6 +101,6 @@ void arraySplit(const int *a, const size_t sizeA,
 int getSequenceType(const int *a, const size_t n);
 
 // returns a sum of array a of size n
-int arraySum(const int *a, const size_t n);
+int arraySum(const int *a, int n);
 
 #endif //LABS_LIBS_ALGORITHM_H

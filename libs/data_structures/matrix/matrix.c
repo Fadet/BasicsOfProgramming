@@ -8,7 +8,7 @@
 #include <memory.h>
 #include "../../algorithms/algorithm.h"
 
-#define MEM_NULL(mem) \
+#define MEM_NULL_CHECK(mem) \
     if(NULL == mem) raise("bad allocation")
 
 static void raise(const char *const error) {
@@ -19,20 +19,21 @@ static void raise(const char *const error) {
 matrix getMemMatrix(const int nRows, const int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
 
-    MEM_NULL(values);
+    MEM_NULL_CHECK(values);
 
     for (int i = 0; i < nRows; ++i)
         values[i] = (int *) malloc(sizeof(int) * nCols);
 
-    MEM_NULL(values[nRows - 1]);
+    MEM_NULL_CHECK(values[nRows - 1]);
 
     return (matrix) {values, nRows, nCols};
 }
 
-matrix *getMemArrayOfMatrices(const int nMatrices, const int nRows, const int nCols) {
+matrix *getMemArrayOfMatrices(const int nMatrices,
+                              const int nRows, const int nCols) {
     matrix *arrayOfMatrices = (matrix *) malloc(sizeof(matrix) * nMatrices);
 
-    MEM_NULL(arrayOfMatrices);
+    MEM_NULL_CHECK(arrayOfMatrices);
 
     for (int i = 0; i < nMatrices; ++i)
         arrayOfMatrices[i] = getMemMatrix(nRows, nCols);
@@ -84,14 +85,14 @@ void outputMatrices(const matrix *const arrayOfMatrices, const int nMatrices) {
 }
 
 void swapRows(matrix m, const int i, const int j) {
-    if (i <= m.nRows || j <= m.nRows)
+    if (i >= m.nRows || j >= m.nRows)
         raise("index error");
 
     swap(&m.values[i], &m.values[j], sizeof(int *));
 }
 
 void swapColumns(matrix m, const int i, const int j) {
-    if (i <= m.nCols || j <= m.nCols)
+    if (i >= m.nCols || j >= m.nCols)
         raise("index error");
 
     int rows = m.nRows;
@@ -99,12 +100,13 @@ void swapColumns(matrix m, const int i, const int j) {
         swap(&m.values[k][i], &m.values[k][j], sizeof(int));
 }
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*const criteria)(int *const, const int)) {
+void insertionSortRowsMatrixByRowCriteria(matrix m,
+                                          int (*const criteria)(const int *const, const int)) {
     int rows = m.nRows;
     int cols = m.nCols;
     int *criteriaValues = (int *) malloc(sizeof(int) * rows);
 
-    MEM_NULL(criteriaValues);
+    MEM_NULL_CHECK(criteriaValues);
 
     for (int i = 0; i < rows; ++i)
         criteriaValues[i] = criteria(m.values[i], cols);
@@ -121,14 +123,15 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*const criteria)(int *c
     free(criteriaValues);
 }
 
-void insertionSortColsMatrixByColCriteria(matrix m, int (*const criteria)(int *const, const int)) {
+void insertionSortColsMatrixByColCriteria(matrix m,
+                                          int (*const criteria)(const int *const, const int)) {
     int cols = m.nCols;
     int rows = m.nRows;
     int *criteriaValues = (int *) malloc(cols * sizeof(int));
     int *currentCol = (int *) malloc(rows * sizeof(int));
 
-    MEM_NULL(criteriaValues);
-    MEM_NULL(currentCol);
+    MEM_NULL_CHECK(criteriaValues);
+    MEM_NULL_CHECK(currentCol);
 
     for (int i = 0; i < cols; ++i) {
         for (int j = 0; j < rows; ++j)
@@ -159,7 +162,7 @@ bool areTwoMatricesEqual(matrix m1, matrix m2) {
         return false;
 
     for (int i = 0; i < m1.nRows; ++i)
-        if (!memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols))
+        if (memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols) != 0)
             return false;
     return true;
 }
@@ -172,7 +175,7 @@ bool isEMatrix(const matrix m) {
     int cols = m.nCols;
     for (int i = 0; i < rows; ++i)
         for (int j = 0; j < cols; ++j)
-            if (i == j && m.values[i][j] != 1 || m.values[i][j] != 0)
+            if (i == j && m.values[i][j] != 1 || i != j && m.values[i][j] != 0)
                 return false;
     return true;
 }
@@ -238,7 +241,8 @@ position getMaxValuePos(const matrix m) {
     return pos;
 }
 
-matrix createMatrixFromArray(const int *const values, const int nRows, const int nCols) {
+matrix createMatrixFromArray(const int *const values,
+                             const int nRows, const int nCols) {
     matrix m = getMemMatrix(nRows, nCols);
 
     int k = 0;
@@ -249,7 +253,9 @@ matrix createMatrixFromArray(const int *const values, const int nRows, const int
     return m;
 }
 
-matrix *createArrayOfMatricesFromArray(const int * const values, const int nMatrices, const int nRows, const int nCols) {
+matrix *createArrayOfMatricesFromArray(const int * const values,
+                                       const int nMatrices,
+                                       const int nRows, const int nCols) {
     matrix *arrayOfMatrices = getMemArrayOfMatrices(nMatrices, nRows, nCols);
 
     int l = 0;
