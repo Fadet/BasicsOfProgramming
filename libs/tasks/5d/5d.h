@@ -16,4 +16,7 @@ void sortRowsByMaxElement(matrix m);
 // sorts columns of matrix m by minimum value in a column
 void sortColsByMinElement(matrix m);
 
+// replaces matrix *m by its square if the matrix is symmetric
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
 #endif //LABS_LIBS_5D_H

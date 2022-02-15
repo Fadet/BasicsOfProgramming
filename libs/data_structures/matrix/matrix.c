@@ -253,7 +253,7 @@ matrix createMatrixFromArray(const int *const values,
     return m;
 }
 
-matrix *createArrayOfMatricesFromArray(const int * const values,
+matrix *createArrayOfMatricesFromArray(const int *const values,
                                        const int nMatrices,
                                        const int nRows, const int nCols) {
     matrix *arrayOfMatrices = getMemArrayOfMatrices(nMatrices, nRows, nCols);
@@ -265,4 +265,23 @@ matrix *createArrayOfMatricesFromArray(const int * const values,
                 arrayOfMatrices[i].values[j][k] = values[l++];
 
     return arrayOfMatrices;
+}
+
+matrix multiplyMatrices(const matrix m1, const matrix m2) {
+    if (m1.nCols != m2.nRows)
+        raise("Multiplication error: incompatible sizes of matrices");
+
+    matrix result = getMemMatrix(m1.nRows, m2.nCols);
+
+    int rows1 = m1.nRows;
+    int rows2 = m2.nRows;
+    int cols2 = m2.nCols;
+    for (int i = 0; i < rows1; ++i)
+        for (int j = 0; j < cols2; ++j) {
+            result.values[i][j] = 0;
+            for (int k = 0; k < rows2; ++k)
+                result.values[i][j] += m1.values[i][k] * m2.values[k][j];
+        }
+
+    return result;
 }

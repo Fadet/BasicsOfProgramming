@@ -355,6 +355,27 @@ static void test_createArrayOfMatricesFromArray_CommonCase() {
     freeMemMatrices(am, 2);
 }
 
+static void test_multiplyMatrices_commonCase() {
+    matrix m1 = createMatrixFromArray((int[]) {3, -1, 2,
+                                               4, 2, 0,
+                                               -5, 6, 1}, 3, 3);
+    matrix m2 = createMatrixFromArray((int[]) {8, 1,
+                                               7, 2,
+                                               2, -3}, 3, 2);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {21, -5,
+                                                          46, 8,
+                                                          4, 4}, 3, 2);
+
+    matrix result = multiplyMatrices(m1, m2);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+    freeMemMatrix(assumedMatrix);
+    freeMemMatrix(result);
+}
+
 void test_matrix() {
     test_getMemMatrix_CommonCase();
     test_getMemMatrices_CommonCase();
@@ -383,4 +404,5 @@ void test_matrix() {
     test_getMaxValuePos_matrixOfUnitDimension();
     test_getMaxValuePos_CommonCase();
     test_createArrayOfMatricesFromArray_CommonCase();
+    test_multiplyMatrices_commonCase();
 }

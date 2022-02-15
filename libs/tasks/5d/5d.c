@@ -37,3 +37,14 @@ void sortRowsByMaxElement(matrix m) {
 void sortColsByMinElement(matrix m) {
     insertionSortColsMatrixByColCriteria(m, getMin);
 }
+
+void getSquareOfMatrixIfSymmetric(matrix *const m) {
+    if (!isSymmetricMatrix(*m))
+        return;
+
+    matrix m_squared = multiplyMatrices(*m, *m);
+
+    freeMemMatrix(*m);
+
+    *m = m_squared;
+}

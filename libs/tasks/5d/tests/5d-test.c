@@ -59,8 +59,8 @@ static void test_sortRowsByMaxElement_theSameMax() {
                                                    1, 7, 1,
                                                    7, 2, 3}, 3, 3);
     matrix assumedMatrix = createMatrixFromArray((int[]) {7, 1, 2,
-                                                   1, 7, 1,
-                                                   7, 2, 3}, 3, 3);
+                                                          1, 7, 1,
+                                                          7, 2, 3}, 3, 3);
 
     sortRowsByMaxElement(result);
 
@@ -103,6 +103,38 @@ static void test_sortColsByMinElement_theSameMin() {
 
 }
 
+static void test_getSquareOfMatrixIfSymmetric_symmetricMatrix() {
+    matrix result = createMatrixFromArray((int[]) {1, 4, 5,
+                                              4, 2, 6,
+                                              5, 6, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {42, 42, 44,
+                                     42, 56, 50,
+                                     44, 50, 70}, 3, 3);
+
+    getSquareOfMatrixIfSymmetric(&result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(assumedMatrix);
+    freeMemMatrix(result);
+}
+
+static void test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix() {
+    matrix result = createMatrixFromArray((int[]) {1, 4, 4,
+                                              4, 2, 6,
+                                              5, 6, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 4, 4,
+                                                          4, 2, 6,
+                                                          5, 6, 3}, 3, 3);
+
+    getSquareOfMatrixIfSymmetric(&result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(assumedMatrix);
+    freeMemMatrix(result);
+}
+
 
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
@@ -111,4 +143,6 @@ void test_5d() {
     test_sortRowsByMaxElement_theSameMax();
     test_sortColsByMinElement_commonCase();
     test_sortColsByMinElement_theSameMin();
+    test_getSquareOfMatrixIfSymmetric_symmetricMatrix();
+    test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix();
 }

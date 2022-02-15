@@ -51,11 +51,11 @@ void swapColumns(matrix m, int i, int j);
 
 // sorts rows of matrix m by a non-increasing value of criteria
 void insertionSortRowsMatrixByRowCriteria(matrix m,
-                                          int (*criteria) (const int *, int));
+                                          int (*criteria)(const int *, int));
 
 // sorts columns of matrix m by a non-increasing value of criteria
 void insertionSortColsMatrixByColCriteria(matrix m,
-                                          int (*criteria) (const int *, int));
+                                          int (*criteria)(const int *, int));
 
 // returns true if matrix m has equal amount of rows and columns else returns false
 bool isSquareMatrix(matrix m);
@@ -87,5 +87,8 @@ matrix createMatrixFromArray(const int *values,
 matrix *createArrayOfMatricesFromArray(const int *values,
                                        int nMatrices,
                                        int nRows, int nCols);
+
+// returns matrix that is the result of matrices m1 and m2 multiplication
+matrix multiplyMatrices(matrix m1, matrix m2);
 
 #endif //LABS_LIBS_MATRIX_H
