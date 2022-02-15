@@ -19,4 +19,7 @@ void sortColsByMinElement(matrix m);
 // replaces matrix *m by its square if the matrix is symmetric
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+// transposes matrix m if it contains rows with unique sums
+void transposeIfMatrixDoesntHaveEqualSumOfRows(matrix m);
+
 #endif //LABS_LIBS_5D_H

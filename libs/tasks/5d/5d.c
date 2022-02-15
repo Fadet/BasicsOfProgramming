@@ -3,6 +3,8 @@
 //
 
 #include "5d.h"
+#include <stdlib.h>
+#include <memory.h>
 
 static int getMax(const int *const a, const int size) {
     int max = a[0];
@@ -22,6 +24,40 @@ static int getMin(const int *const a, const int size) {
     return min;
 }
 
+static long long getSum(const int *const a, const int size) {
+    long long sum = 0;
+    for (int i = 0; i < size; ++i)
+        sum += a[i];
+
+    return sum;
+}
+
+static int long_long_cmp(const void *x, const void *y) {
+    long long a = *((long long *) x);
+    long long b = *((long long *) y);
+
+    if (a < b)
+        return -1;
+    else if (a > b)
+        return 1;
+    else
+        return 0;
+}
+
+static bool isUnique(const long long *const a, const int size) {
+    long long *aCopy = (long long *) malloc(size * sizeof(long long));
+    memcpy(aCopy, a, size * sizeof(long long));
+    qsort(aCopy, size, sizeof(long long), long_long_cmp);
+
+    for (int i = 1; i < size; ++i)
+        if (aCopy[i - 1] == aCopy[i]) {
+            free(aCopy);
+            return false;
+        }
+
+    free(aCopy);
+    return true;
+}
 
 void swapRowsWithMaxMinElements(matrix m) {
     position posMin = getMinValuePos(m);
@@ -47,4 +83,18 @@ void getSquareOfMatrixIfSymmetric(matrix *const m) {
     freeMemMatrix(*m);
 
     *m = m_squared;
+}
+
+void transposeIfMatrixDoesntHaveEqualSumOfRows(matrix m) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+    long long *sumsOfRows = (long long *) malloc(rows * sizeof(long long));
+
+    for (int i = 0; i < rows; ++i)
+        sumsOfRows[i] = getSum(m.values[i], cols);
+
+    if (isUnique(sumsOfRows, rows))
+        transposeSquareMatrix(m);
+
+    free(sumsOfRows);
 }

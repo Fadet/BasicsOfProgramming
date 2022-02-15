@@ -135,6 +135,37 @@ static void test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix() {
     freeMemMatrix(result);
 }
 
+static void test_transposeIfMatrixDoesntHaveEqualSumOfRows_uniqueSumsOfRowe() {
+    matrix result = createMatrixFromArray((int[]) {1, 4, 4,
+                                                   4, 2, 6,
+                                                   5, 6, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 4, 5,
+                                                          4, 2, 6,
+                                                          4, 6, 3}, 3, 3);
+
+    transposeIfMatrixDoesntHaveEqualSumOfRows(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(assumedMatrix);
+    freeMemMatrix(result);
+}
+
+static void test_transposeIfMatrixDoesntHaveEqualSumOfRows_nonUniqueSumsOfRowe() {
+    matrix result = createMatrixFromArray((int[]) {2, 4, 6,
+                                                   5, 6, 3,
+                                                   4, 2, 6}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {2, 4, 6,
+                                                          5, 6, 3,
+                                                          4, 2, 6}, 3, 3);
+
+    transposeIfMatrixDoesntHaveEqualSumOfRows(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(assumedMatrix);
+    freeMemMatrix(result);
+}
 
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
@@ -145,4 +176,6 @@ void test_5d() {
     test_sortColsByMinElement_theSameMin();
     test_getSquareOfMatrixIfSymmetric_symmetricMatrix();
     test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix();
+    test_transposeIfMatrixDoesntHaveEqualSumOfRows_uniqueSumsOfRowe();
+    test_transposeIfMatrixDoesntHaveEqualSumOfRows_nonUniqueSumsOfRowe();
 }
