@@ -7,4 +7,5 @@ add_executable(Labs_Libs main.c)
 add_subdirectory(libs)
 target_link_libraries(Labs_Libs algorithms)
 target_link_libraries(Labs_Libs data_structures)
+target_link_libraries(Labs_Libs tasks)
 

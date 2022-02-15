@@ -33,12 +33,12 @@ static void test_getMemMatrices_CommonCase() {
 }
 
 static void test_swapRows_swapTheSameRows() {
-    matrix result = createMatrixFromArray((int []) {1, 2, 3,
-                                                    4, 5, 6,
-                                                    7, 8, 9}, 3, 3);
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3,
+                                                   4, 5, 6,
+                                                   7, 8, 9}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
 
     swapRows(result, 1, 1);
 
@@ -49,14 +49,14 @@ static void test_swapRows_swapTheSameRows() {
 }
 
 static void test_swapRows_CommonCase() {
-    matrix result = createMatrixFromArray((int []) {4, 5, 6,
-                                                    1, 2, 3,
-                                                    7, 8, 9}, 3, 3);
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {4, 5, 6,
+                                                   1, 2, 3,
+                                                   7, 8, 9}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
 
-    swapRows(result,0, 1);
+    swapRows(result, 0, 1);
 
     assert(areTwoMatricesEqual(assumedMatrix, result));
 
@@ -65,12 +65,12 @@ static void test_swapRows_CommonCase() {
 }
 
 static void test_swapColumns_swapTheSameCols() {
-    matrix result = createMatrixFromArray((int []) {1, 2, 3,
-                                                    4, 5, 6,
-                                                    7, 8, 9}, 3, 3);
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3,
+                                                   4, 5, 6,
+                                                   7, 8, 9}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
 
     swapColumns(result, 1, 1);
 
@@ -81,12 +81,12 @@ static void test_swapColumns_swapTheSameCols() {
 }
 
 static void test_swapColumns_CommonCase() {
-    matrix result = createMatrixFromArray((int []) {2, 1, 3,
-                                                    5, 4, 6,
-                                                    8, 7, 9}, 3, 3);
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {2, 1, 3,
+                                                   5, 4, 6,
+                                                   8, 7, 9}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
 
     swapColumns(result, 0, 1);
 
@@ -97,12 +97,12 @@ static void test_swapColumns_CommonCase() {
 }
 
 static void test_insertionSortRowsMatrixByRowCriteria_sumOfRows() {
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
-    matrix result = createMatrixFromArray((int []) {7, 8, 9,
-                                                    4, 5, 6,
-                                                    1, 2, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {7, 8, 9,
+                                                   4, 5, 6,
+                                                   1, 2, 3}, 3, 3);
 
     insertionSortRowsMatrixByRowCriteria(result, arraySum);
 
@@ -113,12 +113,12 @@ static void test_insertionSortRowsMatrixByRowCriteria_sumOfRows() {
 }
 
 static void test_insertionSortColsMatrixByColCriteria_sumOfCols() {
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 2, 3,
-                                                           4, 5, 6,
-                                                           7, 8, 9}, 3, 3);
-    matrix result = createMatrixFromArray((int []) {3, 2, 1,
-                                                    6, 5, 4,
-                                                    9, 8, 7}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          4, 5, 6,
+                                                          7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {3, 2, 1,
+                                                   6, 5, 4,
+                                                   9, 8, 7}, 3, 3);
 
     insertionSortColsMatrixByColCriteria(result, arraySum);
 
@@ -129,12 +129,12 @@ static void test_insertionSortColsMatrixByColCriteria_sumOfCols() {
 }
 
 static void test_areTwoMatricesEqual_equalMatrices() {
-    matrix matrix1 = createMatrixFromArray((int []) {1, 2, 3,
-                                                     4, 5, 6,
-                                                     7, 8, 9}, 3, 3);
-    matrix matrix2 = createMatrixFromArray((int []) {1, 2, 3,
-                                                     4, 5, 6,
-                                                     7, 8, 9}, 3, 3);
+    matrix matrix1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                                    4, 5, 6,
+                                                    7, 8, 9}, 3, 3);
+    matrix matrix2 = createMatrixFromArray((int[]) {1, 2, 3,
+                                                    4, 5, 6,
+                                                    7, 8, 9}, 3, 3);
 
     assert(areTwoMatricesEqual(matrix1, matrix2));
 
@@ -143,12 +143,12 @@ static void test_areTwoMatricesEqual_equalMatrices() {
 }
 
 static void test_areTwoMatricesEqual_nonEqualMatrices() {
-    matrix matrix1 = createMatrixFromArray((int []) {3, 2, 1,
-                                                     4, 5, 6,
-                                                     7, 8, 9}, 3, 3);
-    matrix matrix2 = createMatrixFromArray((int []) {1, 2, 3,
-                                                     4, 5, 6,
-                                                     7, 8, 9}, 3, 3);
+    matrix matrix1 = createMatrixFromArray((int[]) {3, 2, 1,
+                                                    4, 5, 6,
+                                                    7, 8, 9}, 3, 3);
+    matrix matrix2 = createMatrixFromArray((int[]) {1, 2, 3,
+                                                    4, 5, 6,
+                                                    7, 8, 9}, 3, 3);
 
     assert(!areTwoMatricesEqual(matrix1, matrix2));
 
@@ -229,12 +229,12 @@ static void test_isSymmetricMatrix_nonSquareMatrix() {
 }
 
 static void test_transposeSquareMatrix_CommonCase() {
-    matrix result = createMatrixFromArray((int []) {1, 2, 3,
-                                                    4, 5, 6,
-                                                    7, 8, 9}, 3, 3);
-    matrix assumedMatrix = createMatrixFromArray((int []) {1, 4, 7,
-                                                           2, 5, 8,
-                                                           3, 6, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3,
+                                                   4, 5, 6,
+                                                   7, 8, 9}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 4, 7,
+                                                          2, 5, 8,
+                                                          3, 6, 9}, 3, 3);
 
     transposeSquareMatrix(result);
 
@@ -245,9 +245,9 @@ static void test_transposeSquareMatrix_CommonCase() {
 }
 
 static void test_getMinValuePos_CommonCase() {
-    matrix m = createMatrixFromArray((int []) {3, 2, 1,
-                                                    4, 5, 6,
-                                                    7, 8, 9}, 3, 3);
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              4, 5, 6,
+                                              7, 8, 9}, 3, 3);
 
     position pos = getMinValuePos(m);
 
@@ -258,7 +258,7 @@ static void test_getMinValuePos_CommonCase() {
 }
 
 static void test_getMinValuePos_matrixOfUnitDimension() {
-    matrix m = createMatrixFromArray((int []) {10}, 1, 1);
+    matrix m = createMatrixFromArray((int[]) {10}, 1, 1);
 
     position pos = getMinValuePos(m);
 
@@ -269,9 +269,9 @@ static void test_getMinValuePos_matrixOfUnitDimension() {
 }
 
 static void test_getMaxValuePos_CommonCase() {
-    matrix m = createMatrixFromArray((int []) {3, 2, 1,
-                                               4, 9, 6,
-                                               7, 8, 5}, 3, 3);
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              4, 9, 6,
+                                              7, 8, 5}, 3, 3);
 
     position pos = getMaxValuePos(m);
 
@@ -282,7 +282,7 @@ static void test_getMaxValuePos_CommonCase() {
 }
 
 static void test_getMaxValuePos_matrixOfUnitDimension() {
-    matrix m = createMatrixFromArray((int []) {10}, 1, 1);
+    matrix m = createMatrixFromArray((int[]) {10}, 1, 1);
 
     position pos = getMaxValuePos(m);
 
