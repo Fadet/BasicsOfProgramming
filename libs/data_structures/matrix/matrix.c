@@ -111,7 +111,7 @@ void insertionSortRowsMatrixByRowCriteria(matrix m,
     for (int i = 0; i < rows; ++i)
         criteriaValues[i] = criteria(m.values[i], cols);
 
-    for (int i = 1; i < cols; ++i) {
+    for (int i = 1; i < rows; ++i) {
         int j = i;
         while (j != 0 && criteriaValues[j - 1] > criteriaValues[j]) {
             swapRows(m, j - 1, j);
@@ -141,7 +141,7 @@ void insertionSortColsMatrixByColCriteria(matrix m,
 
     free(currentCol);
 
-    for (int i = 1; i < rows; ++i) {
+    for (int i = 1; i < cols; ++i) {
         int j = i;
         while (j != 0 && criteriaValues[j - 1] > criteriaValues[j]) {
             swapColumns(m, j - 1, j);

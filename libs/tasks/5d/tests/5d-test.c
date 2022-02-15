@@ -62,15 +62,53 @@ static void test_sortRowsByMaxElement_theSameMax() {
                                                    1, 7, 1,
                                                    7, 2, 3}, 3, 3);
 
+    sortRowsByMaxElement(result);
+
     assert(areTwoMatricesEqual(assumedMatrix, result));
 
     freeMemMatrix(result);
     freeMemMatrix(assumedMatrix);
 }
 
+static void test_sortColsByMinElement_commonCase() {
+    matrix result = createMatrixFromArray((int[]) {3, 5, 2, 4, 3, 3,
+                                                   2, 5, 1, 8, 2, 7,
+                                                   6, 1, 4, 4, 8, 3}, 3, 6);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {5, 2, 3, 3, 3, 4,
+                                                          5, 1, 2, 2, 7, 8,
+                                                          1, 4, 6, 8, 3, 4}, 3, 6);
+
+    sortColsByMinElement(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
+static void test_sortColsByMinElement_theSameMin() {
+    matrix result = createMatrixFromArray((int[]) {3, 5, 2, 4, 1, 1,
+                                                   1, 5, 1, 1, 2, 7,
+                                                   6, 1, 4, 4, 8, 3}, 3, 6);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {3, 5, 2, 4, 1, 1,
+                                                          1, 5, 1, 1, 2, 7,
+                                                          6, 1, 4, 4, 8, 3}, 3, 6);
+
+    sortColsByMinElement(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+
+}
+
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
     test_sortRowsByMaxElement_commonCase();
     test_sortRowsByMaxElement_theSameMax();
+    test_sortColsByMinElement_commonCase();
+    test_sortColsByMinElement_theSameMin();
 }

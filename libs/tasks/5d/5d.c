@@ -13,6 +13,15 @@ static int getMax(const int *const a, const int size) {
     return max;
 }
 
+static int getMin(const int *const a, const int size) {
+    int min = a[0];
+    for (int i = 0; i < size; ++i)
+        if (a[i] < min)
+            min = a[i];
+
+    return min;
+}
+
 
 void swapRowsWithMaxMinElements(matrix m) {
     position posMin = getMinValuePos(m);
@@ -23,4 +32,8 @@ void swapRowsWithMaxMinElements(matrix m) {
 
 void sortRowsByMaxElement(matrix m) {
     insertionSortRowsMatrixByRowCriteria(m, getMax);
+}
+
+void sortColsByMinElement(matrix m) {
+    insertionSortColsMatrixByColCriteria(m, getMin);
 }

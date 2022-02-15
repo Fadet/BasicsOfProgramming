@@ -13,4 +13,7 @@ void swapRowsWithMaxMinElements(matrix m);
 // sorts rows of matrix m by maximum value in a row
 void sortRowsByMaxElement(matrix m);
 
+// sorts columns of matrix m by minimum value in a column
+void sortColsByMinElement(matrix m);
+
 #endif //LABS_LIBS_5D_H
