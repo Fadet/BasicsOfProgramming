@@ -112,6 +112,18 @@ static void test_insertionSortRowsMatrixByRowCriteria_sumOfRows() {
     freeMemMatrix(result);
 }
 
+static void test_insertionSortRowsMatrixByRowCriteria_matrixOfUnitDimension() {
+    matrix result = createMatrixFromArray((int[]) {10}, 1, 1);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {10}, 1, 1);
+
+    insertionSortRowsMatrixByRowCriteria(result, arraySum);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
 static void test_insertionSortColsMatrixByColCriteria_sumOfCols() {
     matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
                                                           4, 5, 6,
@@ -127,6 +139,19 @@ static void test_insertionSortColsMatrixByColCriteria_sumOfCols() {
     freeMemMatrix(assumedMatrix);
     freeMemMatrix(result);
 }
+
+static void test_insertionSortColsMatrixByColCriteria_matrixOfUnitDimension() {
+    matrix result = createMatrixFromArray((int[]) {10}, 1, 1);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {10}, 1, 1);
+
+    insertionSortColsMatrixByColCriteria(result, arraySum);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
 
 static void test_areTwoMatricesEqual_equalMatrices() {
     matrix matrix1 = createMatrixFromArray((int[]) {1, 2, 3,
@@ -341,7 +366,9 @@ void test_matrix() {
     test_swapColumns_swapTheSameCols();
     test_swapColumns_CommonCase();
     test_insertionSortRowsMatrixByRowCriteria_sumOfRows();
+    test_insertionSortRowsMatrixByRowCriteria_matrixOfUnitDimension();
     test_insertionSortColsMatrixByColCriteria_sumOfCols();
+    test_insertionSortColsMatrixByColCriteria_matrixOfUnitDimension();
     test_isSquareMatrix_squareMatrix();
     test_isSquareMatrix_nonSquareMatrix();
     test_isEMatrix_identicalMatrix();

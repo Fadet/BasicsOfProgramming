@@ -3,7 +3,6 @@
 //
 
 #include "5d-test.h"
-#include "../../../data_structures/matrix/matrix.h"
 #include "../5d.h"
 #include <assert.h>
 
@@ -39,7 +38,39 @@ static void test_swapRowsWithMaxMinElements_commonCase() {
     freeMemMatrix(assumedMatrix);
 }
 
+static void test_sortRowsByMaxElement_commonCase() {
+    matrix result = createMatrixFromArray((int[]) {7, 1, 2,
+                                                   1, 8, 1,
+                                                   3, 2, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {3, 2, 3,
+                                                          7, 1, 2,
+                                                          1, 8, 1}, 3, 3);
+
+    sortRowsByMaxElement(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
+static void test_sortRowsByMaxElement_theSameMax() {
+    matrix result = createMatrixFromArray((int[]) {7, 1, 2,
+                                                   1, 7, 1,
+                                                   7, 2, 3}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {7, 1, 2,
+                                                   1, 7, 1,
+                                                   7, 2, 3}, 3, 3);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
+    test_sortRowsByMaxElement_commonCase();
+    test_sortRowsByMaxElement_theSameMax();
 }
