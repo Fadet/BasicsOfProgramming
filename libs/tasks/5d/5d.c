@@ -6,11 +6,14 @@
 #include <stdlib.h>
 #include <memory.h>
 
+static int max2(const int x, const int y) {
+    return x > y ? x : y;
+}
+
 static int getMax(const int *const a, const int size) {
     int max = a[0];
     for (int i = 0; i < size; ++i)
-        if (a[i] > max)
-            max = a[i];
+        max = max2(max, a[i]);
 
     return max;
 }
@@ -97,4 +100,15 @@ void transposeIfMatrixDoesntHaveEqualSumOfRows(matrix m) {
         transposeSquareMatrix(m);
 
     free(sumsOfRows);
+}
+
+bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
+    matrix result = multiplyMatrices(m1, m2);
+
+    if (isEMatrix(result)) {
+        freeMemMatrix(result);
+        return true;
+    }
+    freeMemMatrix(result);
+    return false;
 }

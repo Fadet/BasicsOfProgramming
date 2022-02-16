@@ -167,6 +167,30 @@ static void test_transposeIfMatrixDoesntHaveEqualSumOfRows_nonUniqueSumsOfRowe()
     freeMemMatrix(result);
 }
 
+static void test_areMutuallyInverseMatrices_mutuallyInverseMatrices() {
+    matrix m1 = createMatrixFromArray((int[]) {3, -5,
+                                               1, -2}, 2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                               1, -3}, 2, 2);
+
+    assert(areMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+
+static void test_areMutuallyInverseMatrices_mutuallyNonInverseMatrices() {
+    matrix m1 = createMatrixFromArray((int[]) {3, -5,
+                                               1, -2}, 2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {1, 0,
+                                               0, 1}, 2, 2);
+
+    assert(!areMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -178,4 +202,6 @@ void test_5d() {
     test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix();
     test_transposeIfMatrixDoesntHaveEqualSumOfRows_uniqueSumsOfRowe();
     test_transposeIfMatrixDoesntHaveEqualSumOfRows_nonUniqueSumsOfRowe();
+    test_areMutuallyInverseMatrices_mutuallyInverseMatrices();
+    test_areMutuallyInverseMatrices_mutuallyNonInverseMatrices();
 }
