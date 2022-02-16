@@ -28,4 +28,7 @@ bool areMutuallyInverseMatrices(matrix m1, matrix m2);
 // returns sum of maximum values on pseudo diagonals in matrix m
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+// returns a minimum element of matrix m in specific area
+int getMinInArea(matrix m);
+
 #endif //LABS_LIBS_5D_H

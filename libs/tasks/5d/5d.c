@@ -10,6 +10,10 @@ static int max2(const int x, const int y) {
     return x > y ? x : y;
 }
 
+static int min2(const int x, const int y) {
+    return x < y ? x : y;
+}
+
 static int getMax(const int *const a, const int size) {
     int max = a[0];
     for (int i = 0; i < size; ++i)
@@ -113,7 +117,7 @@ bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
     return false;
 }
 
-long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+long long findSumOfMaxesOfPseudoDiagonal(const matrix m) {
     long long sum = 0;
 
     int rows = m.nRows;
@@ -136,4 +140,24 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     }
 
     return sum;
+}
+
+int getMinInArea(const matrix m) {
+    position pos = getMaxValuePos(m);
+    int rowIndex = pos.rowIndex;
+    int leftBoarder = pos.colIndex;
+    int rightBoarder = leftBoarder;
+    int min = m.values[rowIndex][leftBoarder];
+
+    while (rowIndex >= 0) {
+        for (int k = leftBoarder; k <= rightBoarder; ++k)
+            min = min2(min, m.values[rowIndex][k]);
+        if (leftBoarder > 0)
+            leftBoarder--;
+        if (rightBoarder + 1 < m.nCols)
+            rightBoarder++;
+        rowIndex--;
+    }
+
+    return min;
 }

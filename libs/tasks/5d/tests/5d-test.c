@@ -226,6 +226,50 @@ static void test_findSumOfMaxesOfPseudoDiagonal_oneCol() {
     freeMemMatrix(m);
 }
 
+static void test_getMinInArea_commonCase1() {
+    matrix m = createMatrixFromArray((int[]) {10, 7, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 12, 2}, 3, 4);
+
+    assert(getMinInArea(m) == 5);
+
+    freeMemMatrix(m);
+}
+
+static void test_getMinInArea_commonCase2() {
+    matrix m = createMatrixFromArray((int[]) {6, 8, 9, 2,
+                                              7, 12, 3, 4,
+                                              10, 11, 5, 1}, 3, 4);
+
+    assert(getMinInArea(m) == 6);
+
+    freeMemMatrix(m);
+}
+
+static void test_getMinInArea_matrixOfUnitDimension() {
+    matrix m = createMatrixFromArray((int[]) {10}, 1, 1);
+
+    assert(getMinInArea(m) == 10);
+
+    freeMemMatrix(m);
+}
+
+static void test_getMinInArea_oneRow() {
+    matrix m = createMatrixFromArray((int[]) {7, 12, 3, 4}, 1, 4);
+
+    assert(getMinInArea(m) == 12);
+
+    freeMemMatrix(m);
+}
+
+static void test_getMinInArea_oneCol() {
+    matrix m = createMatrixFromArray((int[]) {7, 12, 3, 4}, 4, 1);
+
+    assert(getMinInArea(m) == 7);
+
+    freeMemMatrix(m);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -243,4 +287,9 @@ void test_5d() {
     test_findSumOfMaxesOfPseudoDiagonal_commonCase2();
     test_findSumOfMaxesOfPseudoDiagonal_oneCol();
     test_findSumOfMaxesOfPseudoDiagonal_oneRow();
+    test_getMinInArea_commonCase1();
+    test_getMinInArea_commonCase2();
+    test_getMinInArea_matrixOfUnitDimension();
+    test_getMinInArea_oneRow();
+    test_getMinInArea_oneCol();
 }
