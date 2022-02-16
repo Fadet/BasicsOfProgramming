@@ -25,4 +25,7 @@ void transposeIfMatrixDoesntHaveEqualSumOfRows(matrix m);
 // returns true if matrices m1 and m2 are mutually inverse else returns false
 bool areMutuallyInverseMatrices(matrix m1, matrix m2);
 
+// returns sum of maximum values on pseudo diagonals in matrix m
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
 #endif //LABS_LIBS_5D_H

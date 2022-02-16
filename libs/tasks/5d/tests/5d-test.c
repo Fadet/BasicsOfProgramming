@@ -191,6 +191,41 @@ static void test_areMutuallyInverseMatrices_mutuallyNonInverseMatrices() {
     freeMemMatrix(m2);
 }
 
+static void test_findSumOfMaxesOfPseudoDiagonal_commonCase1() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4,
+                                              1, 3, 6, 3,
+                                              3, 2, 1, 2}, 3, 4);
+
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 20);
+
+    freeMemMatrix(m);
+}
+
+static void test_findSumOfMaxesOfPseudoDiagonal_commonCase2() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4,
+                                              1, 3, 6, 3}, 2, 4);
+
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 16);
+
+    freeMemMatrix(m);
+}
+
+static void test_findSumOfMaxesOfPseudoDiagonal_oneRow() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4}, 1, 4);
+
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 11);
+
+    freeMemMatrix(m);
+}
+
+static void test_findSumOfMaxesOfPseudoDiagonal_oneCol() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4}, 4, 1);
+
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 11);
+
+    freeMemMatrix(m);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -204,4 +239,8 @@ void test_5d() {
     test_transposeIfMatrixDoesntHaveEqualSumOfRows_nonUniqueSumsOfRowe();
     test_areMutuallyInverseMatrices_mutuallyInverseMatrices();
     test_areMutuallyInverseMatrices_mutuallyNonInverseMatrices();
+    test_findSumOfMaxesOfPseudoDiagonal_commonCase1();
+    test_findSumOfMaxesOfPseudoDiagonal_commonCase2();
+    test_findSumOfMaxesOfPseudoDiagonal_oneCol();
+    test_findSumOfMaxesOfPseudoDiagonal_oneRow();
 }

@@ -112,3 +112,28 @@ bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
     freeMemMatrix(result);
     return false;
 }
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    long long sum = 0;
+
+    int rows = m.nRows;
+    int cols = m.nCols;
+    for (int i = 1; i < rows; ++i) {
+        int j = 0;
+        int k = i;
+        int max = m.values[k][j];
+        while (k < rows && j < cols)
+            max = max2(max, m.values[k++][j++]);
+        sum += max;
+    }
+    for (int j = 1; j < cols; ++j) {
+        int i = 0;
+        int k = j;
+        int max = m.values[i][k];
+        while (i < rows && k < cols)
+            max = max2(max, m.values[i++][k++]);
+        sum += max;
+    }
+
+    return sum;
+}
