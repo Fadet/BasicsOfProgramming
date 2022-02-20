@@ -285,3 +285,25 @@ matrix multiplyMatrices(const matrix m1, const matrix m2) {
 
     return result;
 }
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(const int *, int)) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+    float *criteriaValues = (float *) malloc(sizeof(float) * rows);
+
+    MEM_NULL_CHECK(criteriaValues);
+
+    for (int i = 0; i < rows; ++i)
+        criteriaValues[i] = criteria(m.values[i], cols);
+
+    for (int i = 1; i < rows; ++i) {
+        int j = i;
+        while (j != 0 && criteriaValues[j - 1] > criteriaValues[j]) {
+            swapRows(m, j - 1, j);
+            swap(criteriaValues + j - 1, criteriaValues + j, sizeof(int));
+            j--;
+        }
+    }
+
+    free(criteriaValues);
+}

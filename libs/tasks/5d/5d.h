@@ -31,4 +31,7 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 // returns a minimum element of matrix m in specific area
 int getMinInArea(matrix m);
 
+// sorts array of point m by their distance from origin
+void sortByDistances(matrix m);
+
 #endif //LABS_LIBS_5D_H

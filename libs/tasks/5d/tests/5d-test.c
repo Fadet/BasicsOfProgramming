@@ -105,11 +105,11 @@ static void test_sortColsByMinElement_theSameMin() {
 
 static void test_getSquareOfMatrixIfSymmetric_symmetricMatrix() {
     matrix result = createMatrixFromArray((int[]) {1, 4, 5,
-                                              4, 2, 6,
-                                              5, 6, 3}, 3, 3);
+                                                   4, 2, 6,
+                                                   5, 6, 3}, 3, 3);
     matrix assumedMatrix = createMatrixFromArray((int[]) {42, 42, 44,
-                                     42, 56, 50,
-                                     44, 50, 70}, 3, 3);
+                                                          42, 56, 50,
+                                                          44, 50, 70}, 3, 3);
 
     getSquareOfMatrixIfSymmetric(&result);
 
@@ -121,8 +121,8 @@ static void test_getSquareOfMatrixIfSymmetric_symmetricMatrix() {
 
 static void test_getSquareOfMatrixIfSymmetric_nonSymmetricMatrix() {
     matrix result = createMatrixFromArray((int[]) {1, 4, 4,
-                                              4, 2, 6,
-                                              5, 6, 3}, 3, 3);
+                                                   4, 2, 6,
+                                                   5, 6, 3}, 3, 3);
     matrix assumedMatrix = createMatrixFromArray((int[]) {1, 4, 4,
                                                           4, 2, 6,
                                                           5, 6, 3}, 3, 3);
@@ -270,6 +270,38 @@ static void test_getMinInArea_oneCol() {
     freeMemMatrix(m);
 }
 
+static void test_sortByDistances_equalDistances() {
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3, 4,
+                                                   1, 0, 2, 5,
+                                                   4, 3, 1, 2}, 3, 4);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3, 4,
+                                                          1, 0, 2, 5,
+                                                          4, 3, 1, 2}, 3, 4);
+
+    sortByDistances(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
+static void test_sortByDistances_commonCase() {
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3, 4,
+                                                   0, 0, 0, 1,
+                                                   4, 3, 1, 3}, 3, 4);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {0, 0, 0, 1,
+                                                          1, 2, 3, 4,
+                                                          4, 3, 1, 3}, 3, 4);
+
+    sortByDistances(result);
+
+    assert(areTwoMatricesEqual(assumedMatrix, result));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -292,4 +324,6 @@ void test_5d() {
     test_getMinInArea_matrixOfUnitDimension();
     test_getMinInArea_oneRow();
     test_getMinInArea_oneCol();
+    test_sortByDistances_equalDistances();
+    test_sortByDistances_commonCase();
 }

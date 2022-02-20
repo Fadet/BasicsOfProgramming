@@ -5,6 +5,7 @@
 #include "5d.h"
 #include <stdlib.h>
 #include <memory.h>
+#include <math.h>
 
 static int max2(const int x, const int y) {
     return x > y ? x : y;
@@ -16,7 +17,7 @@ static int min2(const int x, const int y) {
 
 static int getMax(const int *const a, const int size) {
     int max = a[0];
-    for (int i = 0; i < size; ++i)
+    for (int i = 1; i < size; ++i)
         max = max2(max, a[i]);
 
     return max;
@@ -24,9 +25,8 @@ static int getMax(const int *const a, const int size) {
 
 static int getMin(const int *const a, const int size) {
     int min = a[0];
-    for (int i = 0; i < size; ++i)
-        if (a[i] < min)
-            min = a[i];
+    for (int i = 1; i < size; ++i)
+        min = min2(min, a[i]);
 
     return min;
 }
@@ -37,6 +37,14 @@ static long long getSum(const int *const a, const int size) {
         sum += a[i];
 
     return sum;
+}
+
+static float getDistance(const int *const a, const int size) {
+    long long distanceSquared = 0;
+    for (int i = 0; i < size; ++i)
+        distanceSquared += a[i] * a[i];
+
+    return sqrt(distanceSquared);
 }
 
 static int long_long_cmp(const void *x, const void *y) {
@@ -160,4 +168,8 @@ int getMinInArea(const matrix m) {
     }
 
     return min;
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
