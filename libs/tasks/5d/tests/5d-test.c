@@ -346,6 +346,27 @@ static void test_replacePenultimateRow_commonCase() {
     freeMemMatrix(assumedMatrix);
 }
 
+static void test_countNonDecreasingRowsMatrices_commonCase() {
+    matrix *am = createArrayOfMatricesFromArray((int[]) {7, 1,
+                                                         1, 1,
+
+                                                         1, 6,
+                                                         2, 2,
+
+                                                         5, 4,
+                                                         2, 3,
+
+                                                         1, 3,
+                                                         7, 9}, 4, 2, 2);
+
+    int result = countNonDecreasingRowsMatrices(am, 4);
+    int assumedResult = 2;
+
+    assert(result == assumedResult);
+
+    freeMemMatrices(am, 4);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -373,4 +394,5 @@ void test_5d() {
     test_countEqClassesByRowsSum_commonCase();
     test_getNSpecialElement_commonCase();
     test_replacePenultimateRow_commonCase();
+    test_countNonDecreasingRowsMatrices_commonCase();
 }

@@ -105,13 +105,30 @@ static position getLeftMin(const matrix m) {
     for (int i = 0; i < m.nRows; ++i) {
         for (int j = 0; j < m.nCols; ++j) {
             int min = m.values[minPos.rowIndex][minPos.colIndex];
-            if (m.values[i][j] < min ||
-                m.values[i][j] == min && j < minPos.colIndex)
+            if (j < minPos.colIndex && m.values[i][j] == min ||
+                m.values[i][j] < min)
                 minPos = (position) {i, j};
         }
     }
 
     return minPos;
+}
+
+static bool isNonDecreasingSorted(const int *const a, const int size) {
+    for (int i = 1; i < size; ++i)
+        if (a[i - 1] > a[i])
+            return false;
+    return true;
+}
+
+static bool hasAllNonDecreasingRows(const matrix m) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+
+    for (int i = 0; i < rows; ++i)
+        if(!isNonDecreasingSorted(m.values[i], rows))
+            return false;
+    return true;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -263,3 +280,11 @@ void replacePenultimateRow(matrix m) {
     free(minCol);
 }
 
+int countNonDecreasingRowsMatrices(const matrix *const arrayOfMatrices, const int nMatrix) {
+    int counter = 0;
+
+    for (int i = 0; i < nMatrix; ++i)
+        counter += hasAllNonDecreasingRows(arrayOfMatrices[i]);
+
+    return counter;
+}

@@ -45,4 +45,8 @@ int getNSpecialElement(matrix m);
 // that minimum element belongs
 void replacePenultimateRow(matrix m);
 
+// returns an amount of matrices from arrayOfMatrices of size nMatrices
+// which rows sorted by non-decreasing
+int countNonDecreasingRowsMatrices(const matrix *arrayOfMatrices, int nMatrix);
+
 #endif //LABS_LIBS_5D_H
