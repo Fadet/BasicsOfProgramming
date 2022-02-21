@@ -6,7 +6,15 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <math.h>
+#include <stdio.h>
 
+#define MEM_NULL_CHECK(mem) \
+    if(NULL == mem) raise("bad allocation")
+
+static void raise(const char *const error) {
+    fprintf(stderr, "%s\n", error);
+    exit(1);
+}
 static int max2(const int x, const int y) {
     return x > y ? x : y;
 }
@@ -72,6 +80,22 @@ static bool isUnique(const long long *const a, const int size) {
 
     free(aCopy);
     return true;
+}
+
+int countNUnique(const long long *const a, const int size) {
+    if (size == 0)
+        return 0;
+
+    long long *aCopy = (long long *) malloc(size * sizeof(long long));
+    memcpy(aCopy, a, size * sizeof(long long));
+    qsort(aCopy, size, sizeof(long long), long_long_cmp);
+
+    int counter = 1;
+    for (int i = 1; i < size; ++i)
+        if (aCopy[i - 1] != aCopy[i])
+            counter++;
+
+    return counter;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -172,4 +196,21 @@ int getMinInArea(const matrix m) {
 
 void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+
+int countEqClassesByRowsSum(const matrix m) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+    long long *arrayOfSums = (long long *) malloc(sizeof(long long) * rows);
+
+    MEM_NULL_CHECK(arrayOfSums);
+
+    for (int i = 0; i < rows; ++i)
+        arrayOfSums[i] = getSum(m.values[i], cols);
+
+    int unique = countNUnique(arrayOfSums, rows);
+
+    free(arrayOfSums);
+
+    return unique;
 }

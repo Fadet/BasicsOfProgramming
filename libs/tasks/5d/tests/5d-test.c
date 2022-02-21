@@ -302,6 +302,22 @@ static void test_sortByDistances_commonCase() {
     freeMemMatrix(assumedMatrix);
 }
 
+static void test_countEqClassesByRowsSum_commonCase() {
+    matrix m = createMatrixFromArray((int[]) {7, 1,
+                                              2, 7,
+                                              5, 4,
+                                              4, 3,
+                                              1,6,
+                                              8,0}, 6, 2);
+
+    int result = countEqClassesByRowsSum(m);
+    int assumedResult = 3;
+
+    assert(result == assumedResult);
+
+    freeMemMatrix(m);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -326,4 +342,5 @@ void test_5d() {
     test_getMinInArea_oneCol();
     test_sortByDistances_equalDistances();
     test_sortByDistances_commonCase();
+    test_countEqClassesByRowsSum_commonCase();
 }

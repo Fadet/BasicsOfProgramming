@@ -34,4 +34,7 @@ int getMinInArea(matrix m);
 // sorts array of point m by their distance from origin
 void sortByDistances(matrix m);
 
+// returns an amount of rows that have unique sums in matrix m
+int countEqClassesByRowsSum(matrix m);
+
 #endif //LABS_LIBS_5D_H
