@@ -49,4 +49,8 @@ void replacePenultimateRow(matrix m);
 // which rows sorted by non-decreasing
 int countNonDecreasingRowsMatrices(const matrix *arrayOfMatrices, int nMatrix);
 
+// prints matrices from arrayOfMatrices of size nMatrix
+// that has maximum amount of zero rows
+void printMatrixWithMaxZeroRows(const matrix *arrayOfMatrices, int nMatrix);
+
 #endif //LABS_LIBS_5D_H

@@ -307,8 +307,8 @@ static void test_countEqClassesByRowsSum_commonCase() {
                                               2, 7,
                                               5, 4,
                                               4, 3,
-                                              1,6,
-                                              8,0}, 6, 2);
+                                              1, 6,
+                                              8, 0}, 6, 2);
 
     int result = countEqClassesByRowsSum(m);
     int assumedResult = 3;

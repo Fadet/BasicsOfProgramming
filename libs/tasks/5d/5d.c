@@ -126,9 +126,29 @@ static bool hasAllNonDecreasingRows(const matrix m) {
     int cols = m.nCols;
 
     for (int i = 0; i < rows; ++i)
-        if(!isNonDecreasingSorted(m.values[i], rows))
+        if (!isNonDecreasingSorted(m.values[i], rows))
             return false;
     return true;
+}
+
+static int countValues(const int *const a, const int size, const int value) {
+    int counter = 0;
+
+    for (int i = 0; i < size; ++i)
+        counter += a[i] == value;
+
+    return counter;
+}
+
+static int countZeroRows(const matrix m) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+    int counter = 0;
+
+    for (int i = 0; i < rows; ++i)
+        counter += countValues(m.values[i], cols, 0) == cols;
+
+    return counter;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -287,4 +307,23 @@ int countNonDecreasingRowsMatrices(const matrix *const arrayOfMatrices, const in
         counter += hasAllNonDecreasingRows(arrayOfMatrices[i]);
 
     return counter;
+}
+
+void printMatrixWithMaxZeroRows(const matrix *const arrayOfMatrices, const int nMatrix) {
+    int *zeroRowsInMatrices = (int *) malloc(sizeof(int) * nMatrix);
+
+    MEM_NULL_CHECK(zeroRowsInMatrices);
+
+    for (int i = 0; i < nMatrix; ++i)
+        zeroRowsInMatrices[i] = countZeroRows(arrayOfMatrices[i]);
+
+    int zeroRowsMax = getMax(zeroRowsInMatrices, nMatrix);
+
+    for (int i = 0; i < nMatrix; ++i)
+        if (zeroRowsMax == zeroRowsInMatrices[i]) {
+            outputMatrix(arrayOfMatrices[i]);
+            printf("\n");
+        }
+
+    free(zeroRowsInMatrices);
 }
