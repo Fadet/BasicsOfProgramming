@@ -41,4 +41,8 @@ int countEqClassesByRowsSum(matrix m);
 // than all element in its column in matrix m
 int getNSpecialElement(matrix m);
 
+// replaces penultimate row of matrix m with first column
+// that minimum element belongs
+void replacePenultimateRow(matrix m);
+
 #endif //LABS_LIBS_5D_H

@@ -15,6 +15,7 @@ static void raise(const char *const error) {
     fprintf(stderr, "%s\n", error);
     exit(1);
 }
+
 static int max2(const int x, const int y) {
     return x > y ? x : y;
 }
@@ -96,6 +97,21 @@ int countNUnique(const long long *const a, const int size) {
             counter++;
 
     return counter;
+}
+
+static position getLeftMin(const matrix m) {
+    position minPos = (position) {0, 0};
+
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = 0; j < m.nCols; ++j) {
+            int min = m.values[minPos.rowIndex][minPos.colIndex];
+            if (m.values[i][j] < min ||
+                m.values[i][j] == min && j < minPos.colIndex)
+                minPos = (position) {i, j};
+        }
+    }
+
+    return minPos;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -229,3 +245,21 @@ int getNSpecialElement(const matrix m) {
 
     return counter;
 }
+
+void replacePenultimateRow(matrix m) {
+    int minColIndex = getLeftMin(m).colIndex;
+    int penultimateRow = m.nRows - 2;
+    int rows = m.nRows;
+
+    int *minCol = (int *) malloc(sizeof(int) * rows);
+
+    MEM_NULL_CHECK(minCol);
+
+    for (int i = 0; i < rows; ++i)
+        minCol[i] = m.values[i][minColIndex];
+
+    memcpy(m.values[penultimateRow], minCol, sizeof(int) * m.nCols);
+
+    free(minCol);
+}
+

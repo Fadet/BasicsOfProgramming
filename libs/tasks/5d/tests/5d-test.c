@@ -331,6 +331,21 @@ static void test_getNSpecialElement_commonCase() {
     freeMemMatrix(m);
 }
 
+static void test_replacePenultimateRow_commonCase() {
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3,
+                                                   4, 5, 6,
+                                                   7, 8, 1}, 3, 3);
+    matrix assumedMatrix = createMatrixFromArray((int[]) {1, 2, 3,
+                                                          1, 4, 7,
+                                                          7, 8, 1}, 3, 3);
+    replacePenultimateRow(result);
+
+    assert(areTwoMatricesEqual(result, assumedMatrix));
+
+    freeMemMatrix(result);
+    freeMemMatrix(assumedMatrix);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -357,4 +372,5 @@ void test_5d() {
     test_sortByDistances_commonCase();
     test_countEqClassesByRowsSum_commonCase();
     test_getNSpecialElement_commonCase();
+    test_replacePenultimateRow_commonCase();
 }
