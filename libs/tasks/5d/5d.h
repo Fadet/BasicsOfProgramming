@@ -37,4 +37,8 @@ void sortByDistances(matrix m);
 // returns an amount of rows that have unique sums in matrix m
 int countEqClassesByRowsSum(matrix m);
 
+// returns an amount of elements that are greater
+// than all element in its column in matrix m
+int getNSpecialElement(matrix m);
+
 #endif //LABS_LIBS_5D_H

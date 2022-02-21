@@ -318,6 +318,19 @@ static void test_countEqClassesByRowsSum_commonCase() {
     freeMemMatrix(m);
 }
 
+static void test_getNSpecialElement_commonCase() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                              2, 3, 6, 7,
+                                              12, 2, 1, 2}, 3, 4);
+
+    int result = getNSpecialElement(m);
+    int assumedResult = 2;
+
+    assert(result == assumedResult);
+
+    freeMemMatrix(m);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -343,4 +356,5 @@ void test_5d() {
     test_sortByDistances_equalDistances();
     test_sortByDistances_commonCase();
     test_countEqClassesByRowsSum_commonCase();
+    test_getNSpecialElement_commonCase();
 }
