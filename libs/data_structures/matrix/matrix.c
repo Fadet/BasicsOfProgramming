@@ -286,10 +286,10 @@ matrix multiplyMatrices(const matrix m1, const matrix m2) {
     return result;
 }
 
-void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(const int *, int)) {
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, double (*criteria)(const int *, int)) {
     int rows = m.nRows;
     int cols = m.nCols;
-    float *criteriaValues = (float *) malloc(sizeof(float) * rows);
+    double *criteriaValues = (double *) malloc(sizeof(double) * rows);
 
     MEM_NULL_CHECK(criteriaValues);
 

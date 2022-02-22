@@ -49,7 +49,7 @@ static long long getSum(const int *const a, const int size) {
     return sum;
 }
 
-static float getDistance(const int *const a, const int size) {
+static double getDistance(const int *const a, const int size) {
     long long distanceSquared = 0;
     for (int i = 0; i < size; ++i)
         distanceSquared += a[i] * a[i];
@@ -167,6 +167,18 @@ static void getMinMaxFromMatrix(const matrix m, int *min, int *max) {
     }
     *min = minV;
     *max = maxV;
+}
+
+static long long getScalarProduct(const int *const v1, const int *const v2, const int dimension) {
+    long long result = 0;
+    for (int i = 0; i < dimension; ++i)
+        result += (long long) v1[i] * v2[i];
+    return result;
+}
+
+static double getCosine(const int *const v1, const int *const v2, const int dimension) {
+    return (double) getScalarProduct(v1, v2, dimension)
+           / (getDistance(v1, dimension) * getDistance(v2, dimension));
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -385,4 +397,21 @@ int getNSpecialElement2(const matrix m) {
         }
 
     return counter;
+}
+
+int getVectorIndexWithMaxAngle(const matrix m, const int *const v) {
+    int rows = m.nRows;
+    int dimension = m.nCols;
+
+    int maxAngleIndex = -1;
+    double maxAngleCos = 1;
+    for (int i = 0; i < rows; ++i) {
+        double currenCos = getCosine(m.values[i], v, dimension);
+        if (currenCos < maxAngleCos) {
+            maxAngleCos = currenCos;
+            maxAngleIndex = i;
+        }
+    }
+
+    return maxAngleIndex;
 }

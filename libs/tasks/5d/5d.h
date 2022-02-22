@@ -58,7 +58,11 @@ void printMatrixWithMaxZeroRows(const matrix *arrayOfMatrices, int nMatrix);
 void printMatrixWithTheLeastNormalValue(const matrix *arrayOfMatrices, int nMatrix);
 
 // returns an amount of elements which left neighbors less
-// and right neighbors greater than current element in a row in matrix
+// and right neighbors greater than current element in a row in matrix m
 int getNSpecialElement2(matrix m);
+
+// returns an index of a row that represents vector of matrix m's nCols dimension and
+// forms a maximum angle with given vector v
+int getVectorIndexWithMaxAngle(matrix m, const int *v);
 
 #endif //LABS_LIBS_5D_H

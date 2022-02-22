@@ -57,9 +57,9 @@ void insertionSortRowsMatrixByRowCriteria(matrix m,
 void insertionSortColsMatrixByColCriteria(matrix m,
                                           int (*criteria)(const int *, int));
 
-// sorts rows of matrix m by a non-increasing float value of criteria
+// sorts rows of matrix m by a non-increasing double value of criteria
 void insertionSortRowsMatrixByRowCriteriaF(matrix m,
-                                           float (*criteria)(const int *, int));
+                                           double (*criteria)(const int *, int));
 
 // returns true if matrix m has equal amount of rows and columns else returns false
 bool isSquareMatrix(matrix m);
