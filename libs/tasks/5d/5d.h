@@ -57,4 +57,8 @@ void printMatrixWithMaxZeroRows(const matrix *arrayOfMatrices, int nMatrix);
 // that has the least normal value
 void printMatrixWithTheLeastNormalValue(const matrix *arrayOfMatrices, int nMatrix);
 
+// returns an amount of elements which left neighbors less
+// and right neighbors greater than current element in a row in matrix
+int getNSpecialElement2(matrix m);
+
 #endif //LABS_LIBS_5D_H

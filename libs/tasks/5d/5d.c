@@ -370,3 +370,19 @@ void printMatrixWithTheLeastNormalValue(const matrix *const arrayOfMatrices, con
 
     free(normalValuesInMatrices);
 }
+
+int getNSpecialElement2(const matrix m) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+
+    int counter = 0;
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j) {
+            int currentValue = m.values[i][j];
+            if ((j == 0 || getMax(m.values[i], j) < currentValue)
+                && (j == cols - 1 || getMin(m.values[i] + j + 1, cols - j - 1) > currentValue))
+                counter++;
+        }
+
+    return counter;
+}
