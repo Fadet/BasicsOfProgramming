@@ -7,6 +7,7 @@
 #include <memory.h>
 #include <math.h>
 #include <stdio.h>
+#include <limits.h>
 
 #define MEM_NULL_CHECK(mem) \
     if(NULL == mem) raise("bad allocation")
@@ -149,6 +150,23 @@ static int countZeroRows(const matrix m) {
         counter += countValues(m.values[i], cols, 0) == cols;
 
     return counter;
+}
+
+static void getMinMaxFromMatrix(const matrix m, int *min, int *max) {
+    int rows = m.nRows;
+    int cols = m.nCols;
+
+    int minV = m.values[0][0];
+    int maxV = minV;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            int currentValue = m.values[i][j];
+            minV = min2(minV, currentValue);
+            maxV = max2(maxV, currentValue);
+        }
+    }
+    *min = minV;
+    *max = maxV;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -326,4 +344,29 @@ void printMatrixWithMaxZeroRows(const matrix *const arrayOfMatrices, const int n
         }
 
     free(zeroRowsInMatrices);
+}
+
+void printMatrixWithTheLeastNormalValue(const matrix *const arrayOfMatrices, const int nMatrix) {
+    int *normalValuesInMatrices = (int *) malloc(sizeof(int) * nMatrix);
+
+    MEM_NULL_CHECK(normalValuesInMatrices);
+
+    int minNormal = INT_MAX;
+    for (int i = 0; i < nMatrix; ++i) {
+        int min, max;
+        getMinMaxFromMatrix(arrayOfMatrices[i], &min, &max);
+
+        int currentNormal = -min > max ? -min : max;
+        normalValuesInMatrices[i] = currentNormal;
+
+        minNormal = min2(minNormal, currentNormal);
+    }
+
+    for (int i = 0; i < nMatrix; ++i)
+        if (normalValuesInMatrices[i] == minNormal) {
+            outputMatrix(arrayOfMatrices[i]);
+            printf("\n");
+        }
+
+    free(normalValuesInMatrices);
 }

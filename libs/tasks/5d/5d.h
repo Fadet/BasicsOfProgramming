@@ -53,4 +53,8 @@ int countNonDecreasingRowsMatrices(const matrix *arrayOfMatrices, int nMatrix);
 // that has maximum amount of zero rows
 void printMatrixWithMaxZeroRows(const matrix *arrayOfMatrices, int nMatrix);
 
+// prints matrices from arrayOfMatrices of size nMatrix
+// that has the least normal value
+void printMatrixWithTheLeastNormalValue(const matrix *arrayOfMatrices, int nMatrix);
+
 #endif //LABS_LIBS_5D_H
