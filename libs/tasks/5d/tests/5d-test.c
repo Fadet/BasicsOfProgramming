@@ -394,6 +394,19 @@ static void test_getVectorIndexWithMaxAngle_commonCase() {
     freeMemMatrix(m);
 }
 
+static void test_getSpecialScalarProduct_commonCase() {
+    matrix m = createMatrixFromArray((int[]) {2, 3, 4,
+                                              5, 6, 9,
+                                              1, 3, 7}, 3, 3);
+
+    long long assumedResult = 49;
+    long long result = getSpecialScalarProduct(m);
+
+    assert(assumedResult == result);
+
+    freeMemMatrix(m);
+}
+
 void test_5d() {
     test_swapRowsWithMaxMinElements_maxMinSameRow();
     test_swapRowsWithMaxMinElements_commonCase();
@@ -424,4 +437,5 @@ void test_5d() {
     test_countNonDecreasingRowsMatrices_commonCase();
     test_getNSpecialElement2_commonCase();
     test_getVectorIndexWithMaxAngle_commonCase();
+    test_getSpecialScalarProduct_commonCase();
 }

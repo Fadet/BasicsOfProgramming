@@ -127,7 +127,7 @@ static bool hasAllNonDecreasingRows(const matrix m) {
     int cols = m.nCols;
 
     for (int i = 0; i < rows; ++i)
-        if (!isNonDecreasingSorted(m.values[i], rows))
+        if (!isNonDecreasingSorted(m.values[i], cols))
             return false;
     return true;
 }
@@ -179,6 +179,20 @@ static long long getScalarProduct(const int *const v1, const int *const v2, cons
 static double getCosine(const int *const v1, const int *const v2, const int dimension) {
     return (double) getScalarProduct(v1, v2, dimension)
            / (getDistance(v1, dimension) * getDistance(v2, dimension));
+}
+
+static long long getScalarProductRowAndCol(const matrix m, const int i, const int j) {
+    int rows = m.nRows;
+
+    int *column = (int *) malloc(sizeof(int) * rows);
+    for (int k = 0; k < rows; ++k)
+        column[k] = m.values[k][j];
+
+    long long result = getScalarProduct(m.values[i], column, m.nCols);
+
+    free(column);
+
+    return result;
 }
 
 void swapRowsWithMaxMinElements(matrix m) {
@@ -414,4 +428,11 @@ int getVectorIndexWithMaxAngle(const matrix m, const int *const v) {
     }
 
     return maxAngleIndex;
+}
+
+long long getSpecialScalarProduct(const matrix m) {
+    position minPos = getMinValuePos(m);
+    position maxPos = getMaxValuePos(m);
+
+    return getScalarProductRowAndCol(m, maxPos.rowIndex, minPos.colIndex);
 }

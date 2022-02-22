@@ -65,4 +65,8 @@ int getNSpecialElement2(matrix m);
 // forms a maximum angle with given vector v
 int getVectorIndexWithMaxAngle(matrix m, const int *v);
 
+// returns a scalar product of the row with maximum element
+// and column with minimum element in matrix m
+long long getSpecialScalarProduct(matrix m);
+
 #endif //LABS_LIBS_5D_H
