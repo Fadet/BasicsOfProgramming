@@ -7,7 +7,7 @@
 #include "../5e.h"
 #include <stdio.h>
 
-#define ASSERT_STR(expected, got) assert_string(expected, got, \
+#define ASSERT_STRING(expected, got) assert_string(expected, got, \
                                 __FILE__, __FUNCTION__, __LINE__)
 
 static void assert_string(const char* expected, const char* got,
@@ -20,4 +20,40 @@ static void assert_string(const char* expected, const char* got,
         fprintf(stderr, "Expected: \"%s\"\n", expected);
     } else
         fprintf(stderr, "%s - OK!\n", func);
+}
+
+static void test_removeNonLetters_commonCase() {
+    char str[] = "38r 3dbd f ";
+
+    removeNonLetters(str);
+
+    char res[] = "38r3dbdf";
+
+    ASSERT_STRING(res, str);
+}
+
+static void test_removeNonLetters_zeroLetters() {
+    char str[] = "    ";
+
+    removeNonLetters(str);
+
+    char res[] = "";
+
+    ASSERT_STRING(res, str);
+}
+
+static void test_removeNonLetters_emptyString() {
+    char str[] = "";
+
+    removeNonLetters(str);
+
+    char res[] = "";
+
+    ASSERT_STRING(res, str);
+}
+
+void test_5e() {
+    test_removeNonLetters_commonCase();
+    test_removeNonLetters_emptyString();
+    test_removeNonLetters_zeroLetters();
 }

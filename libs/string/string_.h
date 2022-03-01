@@ -58,4 +58,7 @@ char *copyIf(const char *beginSource, const char *endSource,
 char *copyIfReverse(const char *rbeginSource, const char *rendSource,
              char *beginDestination, bool (*f)(int));
 
+// returns a pointer to the end of string str
+char *getEndOfString(char *str);
+
 #endif //LABS_LIBS_STRING__H
