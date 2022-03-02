@@ -3,8 +3,11 @@
 //
 
 #include "5e.h"
-#include "../../string/string_.h"
 #include <ctype.h>
+
+static bool alwaysTrue(int ch) {
+    return true;
+}
 
 void removeNonLetters(char *s) {
     char *endSrc = getEndOfString(s);
@@ -39,4 +42,12 @@ void removeExtraSpaces(char *s) {
         s++;
     }
     *(++writePos) = '\0';
+}
+
+void reverseWord(WordDescriptor word) {
+    char *endBuffer = copyIfReverse(word.end - 1,
+                                    word.begin - 1,
+                                    _stringBuffer,
+                                    alwaysTrue);
+    copy(_stringBuffer, endBuffer, word.begin);
 }

@@ -119,6 +119,34 @@ static void test_removeExtraSpaces_commonCase() {
     ASSERT_STRING(assumedStr, str);
 }
 
+static void test_reverseWord_commonCase() {
+    char str[] = "oleg";
+
+    WordDescriptor word;
+    getWord(str, &word);
+
+    reverseWord(word);
+
+    char assumedStr[] = "gelo";
+
+    ASSERT_STRING(assumedStr, str);
+
+}
+
+static void test_reverseWord_emptyString() {
+    char str[] = "";
+
+    WordDescriptor word;
+    getWord(str, &word);
+
+    reverseWord(word);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -130,4 +158,6 @@ void test_5e() {
     test_removeExtraSpaces_commonCase();
     test_removeExtraSpaces_emptyString();
     test_removeExtraSpaces_noSpaces();
+    test_reverseWord_commonCase();
+    test_reverseWord_emptyString();
 }
