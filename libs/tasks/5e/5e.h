@@ -13,6 +13,6 @@ void removeAdjacentEqualLetters(char *s);
 
 void removeExtraSpaces(char *s);
 
-void reverseWord(WordDescriptor word);
+void reverseWordsInString(char *s);
 
 #endif //LABS_LIBS_5E_H

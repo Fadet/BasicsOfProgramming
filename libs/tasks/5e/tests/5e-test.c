@@ -120,14 +120,11 @@ static void test_removeExtraSpaces_commonCase() {
 }
 
 static void test_reverseWord_commonCase() {
-    char str[] = "oleg";
+    char str[] = "oleg 123";
 
-    WordDescriptor word;
-    getWord(str, &word);
+    reverseWordsInString(str);
 
-    reverseWord(word);
-
-    char assumedStr[] = "gelo";
+    char assumedStr[] = "gelo 321";
 
     ASSERT_STRING(assumedStr, str);
 
@@ -136,10 +133,7 @@ static void test_reverseWord_commonCase() {
 static void test_reverseWord_emptyString() {
     char str[] = "";
 
-    WordDescriptor word;
-    getWord(str, &word);
-
-    reverseWord(word);
+    reverseWordsInString(str);
 
     char assumedStr[] = "";
 
