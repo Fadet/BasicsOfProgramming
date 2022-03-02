@@ -7,4 +7,8 @@
 
 void removeNonLetters(char *s);
 
+void removeAdjacentEqualLetters(char *s);
+
+void removeExtraSpaces(char *s);
+
 #endif //LABS_LIBS_5E_H

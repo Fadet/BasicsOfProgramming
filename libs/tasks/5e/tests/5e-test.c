@@ -52,8 +52,82 @@ static void test_removeNonLetters_emptyString() {
     ASSERT_STRING(res, str);
 }
 
+static void test_removeAdjacentEqualLetters_emptyString() {
+    char str[] = "";
+    removeAdjacentEqualLetters(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeAdjacentEqualLetters_unitOccurrences() {
+    char str[] = "abcdefhj123";
+
+    removeAdjacentEqualLetters(str);
+
+    char assumedStr[] = "abcdefhj123";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeAdjacentEqualLetters_commonCase() {
+    char str[] = "aaaabbbcccd34da23ass";
+    removeAdjacentEqualLetters(str);
+
+    char assumedStr[] = "abcd34da23as";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeAdjacentEqualLetters_oneLetter() {
+    char str[] = "aaaaaaaaaaaaaaaa";
+    removeAdjacentEqualLetters(str);
+
+    char assumedStr[] = "a";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeExtraSpaces_emptyString() {
+    char str[] = "";
+
+    removeExtraSpaces(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeExtraSpaces_noSpaces() {
+    char str[] = "rdhhthhhs";
+
+    removeExtraSpaces(str);
+
+    char assumedStr[] = "rdhhthhhs";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_removeExtraSpaces_commonCase() {
+    char str[] = "a\t\t  aboba f\txxx  dg";
+
+    removeExtraSpaces(str);
+
+    char assumedStr[] = "a aboba f\txxx dg";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
     test_removeNonLetters_zeroLetters();
+    test_removeAdjacentEqualLetters_commonCase();
+    test_removeAdjacentEqualLetters_emptyString();
+    test_removeAdjacentEqualLetters_unitOccurrences();
+    test_removeAdjacentEqualLetters_oneLetter();
+    test_removeExtraSpaces_commonCase();
+    test_removeExtraSpaces_emptyString();
+    test_removeExtraSpaces_noSpaces();
 }
