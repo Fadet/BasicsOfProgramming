@@ -96,3 +96,12 @@ char *getEndOfString(char *str) {
 
     return str;
 }
+
+bool getWord(char *beginSearch, WordDescriptor *word) {
+    word->begin = findNonSpace(beginSearch);
+    if (*word->begin == '\0')
+        return false;
+
+    word->end = findSpace(word->begin);
+    return true;
+}

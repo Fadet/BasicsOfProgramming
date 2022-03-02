@@ -8,6 +8,17 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define MAX_STRING_SIZE 10125
+#define MAX_N_WORDS_IN_STRING 125
+#define MAX_WORD_SIZE 80
+
+extern char _stringBuffer[MAX_STRING_SIZE + 1];
+
+typedef struct WordDescriptor {
+    char *begin;
+    char *end;
+} WordDescriptor;
+
 // returns a size of string begin
 size_t strlen(const char *begin);
 
@@ -50,15 +61,17 @@ char *copy(const char *beginSource, const char *endSource,
 // by address beginDestination if predicate f is true
 // returns a pointer to the first free-to-write element in destination
 char *copyIf(const char *beginSource, const char *endSource,
-           char *beginDestination, bool (*f)(int));
+             char *beginDestination, bool (*f)(int));
 
 // writes elements from rbeginSource to rendSource from the right
 // by address beginDestination if predicate f is true
 // returns a pointer to the first free-to-write element in destination
 char *copyIfReverse(const char *rbeginSource, const char *rendSource,
-             char *beginDestination, bool (*f)(int));
+                    char *beginDestination, bool (*f)(int));
 
 // returns a pointer to the end of string str
 char *getEndOfString(char *str);
+
+bool getWord(char *beginSearch, WordDescriptor *word);
 
 #endif //LABS_LIBS_STRING__H
