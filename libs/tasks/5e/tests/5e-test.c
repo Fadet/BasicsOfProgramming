@@ -138,6 +138,86 @@ static void test_reverseWord_emptyString() {
     char assumedStr[] = "";
 
     ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceNumbersWithSpaces_commonCase() {
+    char str[MAX_STRING_SIZE] = "A3B0C1";
+
+    replaceNumbersWithSpaces(str);
+
+    char assumedStr[] = "A   BC ";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceNumbersWithSpaces_emptyString() {
+    char str[MAX_STRING_SIZE] = "";
+
+    replaceNumbersWithSpaces(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceNumbersWithSpaces_onlyDigits() {
+    char str[MAX_STRING_SIZE] = "123";
+
+    replaceNumbersWithSpaces(str);
+
+    char assumedStr[] = "      ";
+
+    ASSERT_STRING(str, assumedStr);
+}
+
+static void test_replaceNumbersWithSpaces_onlyNonDigits() {
+    char str[MAX_STRING_SIZE] = "abcd\n\tdslf";
+
+    replaceNumbersWithSpaces(str);
+
+    char assumedStr[] = "abcd\n\tdslf";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceWord_commonCase() {
+    char str[MAX_STRING_SIZE] = "dhfk aboba sjfsfm aboba";
+
+    replaceWord(str, "aboba", "oleg");
+
+    char assumedStr[] = "dhfk oleg sjfsfm oleg";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceWord_emptyString() {
+    char str[MAX_STRING_SIZE] = "";
+
+    replaceWord(str, "aboba", "gg");
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceWord_onlySpaces() {
+    char str[MAX_STRING_SIZE] = "        ";
+
+    replaceWord(str, "aboba", "gg");
+
+    char assumedStr[] = "        ";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_replaceWord_noWordToReplace() {
+    char str[MAX_STRING_SIZE] = "oleg oleg oleg oleg oleg";
+
+    replaceWord(str, "aboba", "gg");
+
+    char assumedStr[] = "oleg oleg oleg oleg oleg";
+
+    ASSERT_STRING(assumedStr, str);
 
 }
 
@@ -154,4 +234,12 @@ void test_5e() {
     test_removeExtraSpaces_noSpaces();
     test_reverseWord_commonCase();
     test_reverseWord_emptyString();
+    test_replaceNumbersWithSpaces_commonCase();
+    test_replaceNumbersWithSpaces_emptyString();
+    test_replaceNumbersWithSpaces_onlyDigits();
+    test_replaceNumbersWithSpaces_onlyNonDigits();
+    test_replaceWord_commonCase();
+    test_replaceWord_emptyString();
+    test_replaceWord_onlySpaces();
+    test_replaceWord_noWordToReplace();
 }

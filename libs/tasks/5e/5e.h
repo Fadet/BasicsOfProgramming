@@ -15,4 +15,8 @@ void removeExtraSpaces(char *s);
 
 void reverseWordsInString(char *s);
 
+void replaceNumbersWithSpaces(char *s);
+
+void replaceWord(char *source, char *w1, char *w2);
+
 #endif //LABS_LIBS_5E_H

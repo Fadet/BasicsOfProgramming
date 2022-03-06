@@ -12,7 +12,7 @@
 #define MAX_N_WORDS_IN_STRING 125
 #define MAX_WORD_SIZE 80
 
-char _stringBuffer[MAX_STRING_SIZE + 1];
+static char _stringBuffer[MAX_STRING_SIZE + 1];
 
 typedef struct WordDescriptor {
     char *begin;
@@ -75,5 +75,7 @@ char *getEndOfString(char *str);
 bool getWord(char *beginSearch, WordDescriptor *word);
 
 bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
+
+bool wordcmp(WordDescriptor w1, WordDescriptor w2);
 
 #endif //LABS_LIBS_STRING__H
