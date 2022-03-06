@@ -19,4 +19,6 @@ void replaceNumbersWithSpaces(char *s);
 
 void replaceWord(char *source, char *w1, char *w2);
 
+bool isLexicographicOrdered(char *s);
+
 #endif //LABS_LIBS_5E_H

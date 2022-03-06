@@ -6,6 +6,7 @@
 #include "../../../string/string_.h"
 #include "../5e.h"
 #include <stdio.h>
+#include <assert.h>
 
 #define ASSERT_STRING(expected, got) assert_string(expected, got, \
                                 __FILE__, __FUNCTION__, __LINE__)
@@ -221,6 +222,24 @@ static void test_replaceWord_noWordToReplace() {
 
 }
 
+static void test_isLexicographicOrdered_allEqual() {
+    char str[MAX_STRING_SIZE] = "oleg oleg oleg oleg oleg";
+
+    assert(isLexicographicOrdered(str) == true);
+}
+
+static void test_isLexicographicOrdered_isOrdered() {
+    char str[MAX_STRING_SIZE] = "oleg w x y z";
+
+    assert(isLexicographicOrdered(str) == true);
+}
+
+static void test_isLexicographicOrdered_isNotOrdered() {
+    char str[MAX_STRING_SIZE] = "oleg w x a z";
+
+    assert(isLexicographicOrdered(str) == false);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -242,5 +261,7 @@ void test_5e() {
     test_replaceWord_emptyString();
     test_replaceWord_onlySpaces();
     test_replaceWord_noWordToReplace();
-
+    test_isLexicographicOrdered_allEqual();
+    test_isLexicographicOrdered_isOrdered();
+    test_isLexicographicOrdered_isNotOrdered();
 }

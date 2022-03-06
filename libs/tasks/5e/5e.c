@@ -109,3 +109,20 @@ void replaceWord(char *source, char *w1, char *w2) {
     if (recPtr != source)
         *--recPtr = '\0';
 }
+
+bool isLexicographicOrdered(char *s) {
+    WordDescriptor previousWord;
+    if (!getWord(s, &previousWord))
+        return true;
+
+    WordDescriptor currentWord;
+    while (getWord(previousWord.end, &currentWord)) {
+        if (!wordcmp(previousWord, currentWord) &&
+            strcmp(previousWord.begin, currentWord.begin) > 0)
+            return false;
+
+        previousWord = currentWord;
+    }
+
+    return true;
+}
