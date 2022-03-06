@@ -21,4 +21,8 @@ void replaceWord(char *source, char *w1, char *w2);
 
 bool isLexicographicOrdered(char *s);
 
+void printWordsInReverseOrder(char *s);
+
+void printWord(WordDescriptor word);
+
 #endif //LABS_LIBS_5E_H

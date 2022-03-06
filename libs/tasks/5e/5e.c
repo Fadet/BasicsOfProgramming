@@ -5,6 +5,7 @@
 #include "5e.h"
 #include <ctype.h>
 #include <memory.h>
+#include <stdio.h>
 
 static bool alwaysTrue(int ch) {
     return true;
@@ -125,4 +126,19 @@ bool isLexicographicOrdered(char *s) {
     }
 
     return true;
+}
+
+void printWordsInReverseOrder(char *s) {
+    getBagOfWords(&_bag1, s);
+
+    WordDescriptor *end = _bag1.words;
+    for (WordDescriptor *start = _bag1.words + _bag1.size - 1; start >= end; start--)
+        printWord(*start);
+}
+
+void printWord(WordDescriptor word) {
+    char *end = word.end;
+    for (char *start = word.begin; start < end; ++start)
+        printf("%c", *start);
+    printf("\n");
 }

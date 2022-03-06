@@ -126,3 +126,15 @@ bool wordcmp(WordDescriptor w1, WordDescriptor w2) {
 
     return memcmp(start1, start2, size) == 0;
 }
+
+void getBagOfWords(BagOfWords *bag, char *s) {
+    WordDescriptor word;
+    WordDescriptor *bagStart = bag->words;
+    char *strStart = s;
+
+    while (getWord(strStart, &word)) {
+        *bagStart++ = word;
+        bag->size++;
+        strStart = word.end;
+    }
+}

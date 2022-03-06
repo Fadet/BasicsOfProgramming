@@ -19,6 +19,14 @@ typedef struct WordDescriptor {
     char *end;
 } WordDescriptor;
 
+typedef struct BagOfWords {
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+} BagOfWords;
+
+static BagOfWords _bag1;
+static BagOfWords _bag2;
+
 // returns a size of string begin
 size_t strlen(const char *begin);
 
@@ -77,5 +85,7 @@ bool getWord(char *beginSearch, WordDescriptor *word);
 bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
 
 bool wordcmp(WordDescriptor w1, WordDescriptor w2);
+
+void getBagOfWords(BagOfWords *bag, char *s);
 
 #endif //LABS_LIBS_STRING__H
