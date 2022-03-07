@@ -320,6 +320,36 @@ static void test_makeMixedStringFromTwo_emptyString2() {
     ASSERT_STRING(assumedStr, str);
 }
 
+static void test_reverseWordOrder_commonCase() {
+    char str[MAX_STRING_SIZE] = "ya ustal pisat' testi";
+
+    reverseWordOrder(str);
+
+    char assumedStr[] = "testi pisat' ustal ya";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_reverseWordOrder_singleLetters() {
+    char str[MAX_STRING_SIZE] = "a b c";
+
+    reverseWordOrder(str);
+
+    char assumedStr[] = "c b a";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_reverseWordOrder_emptyString() {
+    char str[MAX_STRING_SIZE] = "";
+
+    reverseWordOrder(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -352,4 +382,7 @@ void test_5e() {
     test_makeMixedStringFromTwo_emptyStrings();
     test_makeMixedStringFromTwo_emptyString1();
     test_makeMixedStringFromTwo_emptyString2();
+    test_reverseWordOrder_commonCase();
+    test_reverseWordOrder_singleLetters();
+    test_reverseWordOrder_emptyString();
 }

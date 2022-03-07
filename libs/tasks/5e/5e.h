@@ -29,4 +29,6 @@ int countPalindromeWordsSeparatedWithComma(char *s);
 
 void makeMixedStringFromTwo(char *s1, char *s2, char* sWrite);
 
+void reverseWordOrder(char *s);
+
 #endif //LABS_LIBS_5E_H

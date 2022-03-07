@@ -206,3 +206,19 @@ void makeMixedStringFromTwo(char *s1, char *s2, char *sWrite) {
         start--;
     *start = '\0';
 }
+
+void reverseWordOrder(char *s) {
+    char *endOfBuff = copy(s,s + strlen(s), _stringBuffer);
+    *endOfBuff = '\0';
+
+    WordDescriptor currentWord;
+    char *start = s;
+    while (getWordReverse(endOfBuff - 1, _stringBuffer - 1, &currentWord)) {
+        start = copy(currentWord.begin, currentWord.end, start);
+        *start++ = ' ';
+        endOfBuff = currentWord.begin;
+    }
+
+    if (s != start)
+        *--start = '\0';
+}
