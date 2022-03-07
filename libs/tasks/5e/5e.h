@@ -7,6 +7,13 @@
 #ifndef LABS_LIBS_5E_H
 #define LABS_LIBS_5E_H
 
+typedef enum WordBeforeFirstWordWithAReturnCode {
+    FIRST_WORD_WITH_A,
+    NOT_FOUND_A_WORD_WITH_A,
+    WORD_FOUND,
+    EMPTY_STRING
+} WordBeforeFirstWordWithAReturnCode;
+
 void removeNonLetters(char *s);
 
 void removeAdjacentEqualLetters(char *s);
@@ -27,8 +34,10 @@ void printWord(WordDescriptor word);
 
 int countPalindromeWordsSeparatedWithComma(char *s);
 
-void makeMixedStringFromTwo(char *s1, char *s2, char* sWrite);
+void makeMixedStringFromTwo(char *s1, char *s2, char *sWrite);
 
 void reverseWordOrder(char *s);
+
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *word);
 
 #endif //LABS_LIBS_5E_H

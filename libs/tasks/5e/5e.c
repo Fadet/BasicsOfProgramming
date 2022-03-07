@@ -208,7 +208,7 @@ void makeMixedStringFromTwo(char *s1, char *s2, char *sWrite) {
 }
 
 void reverseWordOrder(char *s) {
-    char *endOfBuff = copy(s,s + strlen(s), _stringBuffer);
+    char *endOfBuff = copy(s, s + strlen(s), _stringBuffer);
     *endOfBuff = '\0';
 
     WordDescriptor currentWord;
@@ -222,3 +222,31 @@ void reverseWordOrder(char *s) {
     if (s != start)
         *--start = '\0';
 }
+
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *word) {
+    WordDescriptor previousWord;
+    char *start = s;
+
+    if (!getWord(start, &previousWord))
+        return EMPTY_STRING;
+
+    if (*find(previousWord.begin, previousWord.end, 'a') == 'a' ||
+        *find(previousWord.begin, previousWord.end, 'A') == 'A')
+        return FIRST_WORD_WITH_A;
+
+    start = previousWord.end;
+    WordDescriptor currentWord;
+    while (getWord(start, &currentWord)) {
+        if (*find(currentWord.begin, currentWord.end, 'a') == 'a' ||
+            *find(currentWord.begin, currentWord.end, 'A') == 'A') {
+            *word = previousWord;
+            return WORD_FOUND;
+        }
+        start = currentWord.end;
+        previousWord = currentWord;
+    }
+
+    return NOT_FOUND_A_WORD_WITH_A;
+}
+
+

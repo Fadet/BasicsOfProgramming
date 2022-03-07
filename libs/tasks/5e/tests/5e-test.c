@@ -11,8 +11,8 @@
 #define ASSERT_STRING(expected, got) assert_string(expected, got, \
                                 __FILE__, __FUNCTION__, __LINE__)
 
-static void assert_string(const char* expected, const char* got,
-                          const char* file, const char* func,
+static void assert_string(const char *expected, const char *got,
+                          const char *file, const char *func,
                           const int line) {
     if (strcmp(expected, got) != 0) {
         fprintf(stderr, "Exception file: %s\n", file);
@@ -350,6 +350,34 @@ static void test_reverseWordOrder_emptyString() {
     ASSERT_STRING(assumedStr, str);
 }
 
+void testAll_getWordBeforeFirstWordWithA() {
+    WordDescriptor word;
+    char s1[] = "";
+    assert (
+            getWordBeforeFirstWordWithA(s1, &word)
+            == EMPTY_STRING
+    );
+    char s2[] = " ABC ";
+    assert (
+            getWordBeforeFirstWordWithA(s2, &word)
+            == FIRST_WORD_WITH_A
+    );
+
+    char s3[] = "BC A";
+    assert (
+            getWordBeforeFirstWordWithA(s3, &word)
+            == WORD_FOUND
+    );
+    char got[MAX_WORD_SIZE];
+    copy(word.begin, word.end, got);
+    got[word.end - word.begin] = '\0';
+    ASSERT_STRING ("BC", got);
+
+    char s4[] = "B Q WE YR OW IUWR ";
+    assert (getWordBeforeFirstWordWithA(s4, &word) ==
+            NOT_FOUND_A_WORD_WITH_A);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -385,4 +413,5 @@ void test_5e() {
     test_reverseWordOrder_commonCase();
     test_reverseWordOrder_singleLetters();
     test_reverseWordOrder_emptyString();
+    testAll_getWordBeforeFirstWordWithA();
 }
