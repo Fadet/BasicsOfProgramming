@@ -272,6 +272,54 @@ static void test_countPalindromeWordsSeparatedWithComma_zeroPalindromes() {
     assert(countPalindromeWordsSeparatedWithComma(str) == assumedResult);
 }
 
+static void test_makeMixedStringFromTwo_commonCase() {
+    char str1[] = "privet ti mimo";
+    char str2[] = "no prohodish";
+    char str[MAX_STRING_SIZE];
+
+    makeMixedStringFromTwo(str1, str2, str);
+
+    char assumedStr[] = "privet no ti prohodish mimo";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_makeMixedStringFromTwo_emptyStrings() {
+    char str1[] = "";
+    char str2[] = "";
+    char str[MAX_STRING_SIZE] = "sdrdrggdrgg";
+
+    makeMixedStringFromTwo(str1, str2, str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_makeMixedStringFromTwo_emptyString1() {
+    char str1[] = "";
+    char str2[] = "dtdgd dfgdg dgdfgd";
+    char str[MAX_STRING_SIZE] = "";
+
+    makeMixedStringFromTwo(str1, str2, str);
+
+    char assumedStr[] = "dtdgd dfgdg dgdfgd";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_makeMixedStringFromTwo_emptyString2() {
+    char str1[] = "dtdgd dfgdg dgdfgd";
+    char str2[] = "";
+    char str[MAX_STRING_SIZE] = "";
+
+    makeMixedStringFromTwo(str1, str2, str);
+
+    char assumedStr[] = "dtdgd dfgdg dgdfgd";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -300,4 +348,8 @@ void test_5e() {
     test_countPalindromeWordsSeparatedWithComma_extraSpaces();
     test_countPalindromeWordsSeparatedWithComma_emptyString();
     test_countPalindromeWordsSeparatedWithComma_zeroPalindromes();
+    test_makeMixedStringFromTwo_commonCase();
+    test_makeMixedStringFromTwo_emptyStrings();
+    test_makeMixedStringFromTwo_emptyString1();
+    test_makeMixedStringFromTwo_emptyString2();
 }

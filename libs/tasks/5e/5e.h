@@ -23,8 +23,10 @@ bool isLexicographicOrdered(char *s);
 
 void printWordsInReverseOrder(char *s);
 
+void printWord(WordDescriptor word);
+
 int countPalindromeWordsSeparatedWithComma(char *s);
 
-void printWord(WordDescriptor word);
+void makeMixedStringFromTwo(char *s1, char *s2, char* sWrite);
 
 #endif //LABS_LIBS_5E_H
