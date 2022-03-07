@@ -21,7 +21,7 @@ void outputArray(const int *a, const size_t n);
 
 // returns an index of the first found x in array a of size n
 // returns -1 if x is not found
-int find(const int *a, const size_t n, const int x);
+int arrayFind(const int *a, const size_t n, const int x);
 
 // returns an index of the first negative number in array a of size n
 // returns -1 if such number is not found

@@ -13,7 +13,7 @@ void outputArray(const int *a, const size_t n) {
     printf("\n");
 }
 
-int find(const int *a, const size_t n, const int x) {
+int arrayFind(const int *a, const size_t n, const int x) {
     int i = 0;
     while (i < n && a[i] != x)
         i++;

@@ -240,6 +240,38 @@ static void test_isLexicographicOrdered_isNotOrdered() {
     assert(isLexicographicOrdered(str) == false);
 }
 
+static void test_countPalindromeWordsSeparatedWithComma_commonCase() {
+    char str[] = "aboba,level,tenet,oleg,noon";
+
+    int assumedResult = 4;
+
+    assert(countPalindromeWordsSeparatedWithComma(str) == assumedResult);
+}
+
+static void test_countPalindromeWordsSeparatedWithComma_extraSpaces() {
+    char str[] = "    aboba,level,tenet,oleg,noon     ";
+
+    int assumedResult = 4;
+
+    assert(countPalindromeWordsSeparatedWithComma(str) == assumedResult);
+}
+
+static void test_countPalindromeWordsSeparatedWithComma_emptyString() {
+    char str[] = "";
+
+    int assumedResult = 0;
+
+    assert(countPalindromeWordsSeparatedWithComma(str) == assumedResult);
+}
+
+static void test_countPalindromeWordsSeparatedWithComma_zeroPalindromes() {
+    char str[] = "oleg,ne_oleg,dead,inside";
+
+    int assumedResult = 0;
+
+    assert(countPalindromeWordsSeparatedWithComma(str) == assumedResult);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -264,4 +296,8 @@ void test_5e() {
     test_isLexicographicOrdered_allEqual();
     test_isLexicographicOrdered_isOrdered();
     test_isLexicographicOrdered_isNotOrdered();
+    test_countPalindromeWordsSeparatedWithComma_commonCase();
+    test_countPalindromeWordsSeparatedWithComma_extraSpaces();
+    test_countPalindromeWordsSeparatedWithComma_emptyString();
+    test_countPalindromeWordsSeparatedWithComma_zeroPalindromes();
 }

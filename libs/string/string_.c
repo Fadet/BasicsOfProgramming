@@ -6,7 +6,6 @@
 #include <ctype.h>
 #include <memory.h>
 
-
 size_t strlen(const char *begin) {
     const char *end = begin;
     while (*end != '\0') {
