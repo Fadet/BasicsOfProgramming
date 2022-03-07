@@ -249,4 +249,22 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
     return NOT_FOUND_A_WORD_WITH_A;
 }
 
+bool lastWordInFirstStringInSecondString(char *str1, char *str2, WordDescriptor *word) {
+    if (!(*str1))
+        return false;
 
+    getBagOfWords(&_bag1, str2);
+
+    WordDescriptor currentWord;
+    char *end = getEndOfString(str1);
+    while (getWordReverse(end - 1, str1 - 1, &currentWord)) {
+        if (findWordInBag(&_bag1, currentWord) != -1) {
+            *word = currentWord;
+            return true;
+        }
+
+        end = currentWord.begin;
+    }
+
+    return false;
+}

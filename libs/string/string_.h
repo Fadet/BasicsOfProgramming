@@ -88,4 +88,8 @@ bool wordcmp(WordDescriptor w1, WordDescriptor w2);
 
 void getBagOfWords(BagOfWords *bag, char *s);
 
+int findWordInBag(BagOfWords *bag, WordDescriptor word);
+
+void wordToString(WordDescriptor word, char *str);
+
 #endif //LABS_LIBS_STRING__H

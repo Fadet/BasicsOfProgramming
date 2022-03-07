@@ -40,4 +40,6 @@ void reverseWordOrder(char *s);
 
 WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *word);
 
+bool lastWordInFirstStringInSecondString(char *str1, char *str2, WordDescriptor *word);
+
 #endif //LABS_LIBS_5E_H

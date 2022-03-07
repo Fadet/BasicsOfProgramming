@@ -350,7 +350,7 @@ static void test_reverseWordOrder_emptyString() {
     ASSERT_STRING(assumedStr, str);
 }
 
-void testAll_getWordBeforeFirstWordWithA() {
+static void testAll_getWordBeforeFirstWordWithA() {
     WordDescriptor word;
     char s1[] = "";
     assert (
@@ -376,6 +376,41 @@ void testAll_getWordBeforeFirstWordWithA() {
     char s4[] = "B Q WE YR OW IUWR ";
     assert (getWordBeforeFirstWordWithA(s4, &word) ==
             NOT_FOUND_A_WORD_WITH_A);
+}
+
+static void test_lastWordInFirstStringInSecondString_commonCase() {
+    char str1[] = "aboba biba boba amogus";
+    char str2[] = "oleg vlad sanya biba oleg";
+
+    WordDescriptor word;
+    lastWordInFirstStringInSecondString(str1, str2, &word);
+
+    char result[MAX_STRING_SIZE];
+    wordToString(word, result);
+
+    char assumedStr[] = "biba";
+
+    ASSERT_STRING(assumedStr, result);
+}
+
+static void test_lastWordInFirstStringInSecondString_emptyString() {
+    char str1[] = "";
+    char str2[] = "oleg vlad sanya biba oleg";
+
+    WordDescriptor word;
+    bool status = lastWordInFirstStringInSecondString(str1, str2, &word);
+
+    assert(status == false);
+}
+
+static void test_lastWordInFirstStringInSecondString_noWord() {
+    char str1[] = "zhzhzhzh xyz";
+    char str2[] = "oleg vlad sanya biba oleg";
+
+    WordDescriptor word;
+    bool status = lastWordInFirstStringInSecondString(str1, str2, &word);
+
+    assert(status == false);
 }
 
 void test_5e() {
@@ -414,4 +449,7 @@ void test_5e() {
     test_reverseWordOrder_singleLetters();
     test_reverseWordOrder_emptyString();
     testAll_getWordBeforeFirstWordWithA();
+    test_lastWordInFirstStringInSecondString_commonCase();
+    test_lastWordInFirstStringInSecondString_emptyString();
+    test_lastWordInFirstStringInSecondString_noWord();
 }
