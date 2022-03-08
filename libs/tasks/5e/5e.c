@@ -391,23 +391,29 @@ void complementStringThatContainsLessWords(char *s1, char *s2) {
     size_t size_s1 = _bag1.size;
     size_t size_s2 = _bag2.size;
     if (size_s1 > size_s2) {
-        swap(&lessString, &greaterString, sizeof(char *));
+        swap(lessString, greaterString, sizeof(char) * MAX_STRING_SIZE);
+        lessStrStart = lessString + strlen(lessString);
+        greaterStrStart = greaterString + strlen(greaterString);
         swap(&_bag1, &_bag2, sizeof(BagOfWords));
     }
 
-
-    *lessStrStart++ = ' ';
-    WordDescriptor *endOfBag2 = _bag2.words + _bag2.size;
-    for (WordDescriptor *word = endOfBag2 - _bag1.size;
-         word < endOfBag2; ++word) {
-        lessStrStart = copy(word->begin, word->end, lessStrStart);
+    if (_bag1.size == 0) {
+        lessStrStart = copy(greaterString, greaterStrStart, lessString);
+        *lessStrStart = '\0';
+    } else {
         *lessStrStart++ = ' ';
+        WordDescriptor *endOfBag2 = _bag2.words + _bag2.size;
+        for (WordDescriptor *word = endOfBag2 - _bag1.size;
+             word < endOfBag2; ++word) {
+            lessStrStart = copy(word->begin, word->end, lessStrStart);
+            *lessStrStart++ = ' ';
+        }
+
+        *--lessStrStart = '\0';
     }
 
-    *lessStrStart = '\0';
-    
     if (size_s1 > size_s2) {
-        s2 = copy(greaterString, greaterStrStart, s2);
+        s2 = copy(lessString, lessStrStart, s2);
         *s2 = '\0';
     } else {
         s1 = copy(lessString, lessStrStart, s1);

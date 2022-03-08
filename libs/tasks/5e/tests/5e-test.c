@@ -620,6 +620,39 @@ static void test_complementStringThatContainsLessWords_commonCase() {
     ASSERT_STRING(assumedStr, str2);
 }
 
+static void test_complementStringThatContainsLessWords_emptyString() {
+    char str1[MAX_STRING_SIZE] = "";
+    char str2[MAX_STRING_SIZE] = "";
+
+    complementStringThatContainsLessWords(str1, str2);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str2);
+}
+
+static void test_complementStringThatContainsLessWords_sameAmountOfWords() {
+    char str1[MAX_STRING_SIZE] = "sfs sdfsd";
+    char str2[MAX_STRING_SIZE] = "sfs sfsdfsfs";
+
+    complementStringThatContainsLessWords(str1, str2);
+
+    char assumedStr[] = "sfs sfsdfsfs";
+
+    ASSERT_STRING(assumedStr, str2);
+}
+
+static void test_complementStringThatContainsLessWords_oneIsEmpty() {
+    char str1[MAX_STRING_SIZE] = "sfs sfsdfsfs";
+    char str2[MAX_STRING_SIZE] = "         ";
+
+    complementStringThatContainsLessWords(str1, str2);
+
+    char assumedStr[] = "sfs sfsdfsfs";
+
+    ASSERT_STRING(assumedStr, str2);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -681,4 +714,7 @@ void test_5e() {
     test_deleteWordsThatEqualToTheLast_allEqual();
     test_deleteWordsThatEqualToTheLast_onlySpaces();
     test_complementStringThatContainsLessWords_commonCase();
+    test_complementStringThatContainsLessWords_emptyString();
+    test_complementStringThatContainsLessWords_sameAmountOfWords();
+    test_complementStringThatContainsLessWords_oneIsEmpty();
 }
