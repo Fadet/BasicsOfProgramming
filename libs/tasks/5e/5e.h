@@ -42,4 +42,6 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
 
 bool lastWordInFirstStringInSecondString(char *str1, char *str2, WordDescriptor *word);
 
+bool hasEqualWords(char *s);
+
 #endif //LABS_LIBS_5E_H

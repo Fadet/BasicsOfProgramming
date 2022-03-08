@@ -413,6 +413,36 @@ static void test_lastWordInFirstStringInSecondString_noWord() {
     assert(status == false);
 }
 
+static void test_hasEqualWords_commonCase() {
+    char str[] = "oleg vlad daniil egor dima mikhail oleg";
+
+    assert(hasEqualWords(str) == true);
+}
+
+static void test_hasEqualWords_emptyString() {
+    char str[] = "";
+
+    assert(hasEqualWords(str) == false);
+}
+
+static void test_hasEqualWords_oneWord() {
+    char str[] = "aboba";
+
+    assert(hasEqualWords(str) == false);
+}
+
+static void test_hasEqualWords_notFound() {
+    char str[] = "oleg vlad daniil egor dima mikhail";
+
+    assert(hasEqualWords(str) == false);
+}
+
+static void test_hasEqualWords_onlySpaces() {
+    char str[] = "                   ";
+
+    assert(hasEqualWords(str) == false);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -452,4 +482,9 @@ void test_5e() {
     test_lastWordInFirstStringInSecondString_commonCase();
     test_lastWordInFirstStringInSecondString_emptyString();
     test_lastWordInFirstStringInSecondString_noWord();
+    test_hasEqualWords_commonCase();
+    test_hasEqualWords_emptyString();
+    test_hasEqualWords_oneWord();
+    test_hasEqualWords_notFound();
+    test_hasEqualWords_onlySpaces();
 }

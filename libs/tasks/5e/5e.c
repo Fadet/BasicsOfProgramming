@@ -268,3 +268,16 @@ bool lastWordInFirstStringInSecondString(char *str1, char *str2, WordDescriptor 
 
     return false;
 }
+
+bool hasEqualWords(char *s) {
+    getBagOfWords(&_bag1, s);
+    if (_bag1.size <= 1)
+        return false;
+
+    WordDescriptor *endOfBag = _bag1.words + _bag1.size;
+    for (WordDescriptor *i = _bag1.words; i < endOfBag; ++i)
+        for (WordDescriptor *j = i + 1; j < endOfBag; ++j)
+            if (wordcmp(*i, *j))
+                return true;
+    return false;
+}

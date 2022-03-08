@@ -131,6 +131,7 @@ void getBagOfWords(BagOfWords *bag, char *s) {
     WordDescriptor *bagStart = bag->words;
     char *strStart = s;
 
+    bag->size = 0;
     while (getWord(strStart, &word)) {
         *bagStart++ = word;
         bag->size++;
