@@ -479,7 +479,7 @@ static void test_getStringOfWordsThatDoNotEqualToTheLast_commonCase() {
 
     getStringOfWordsThatDoNotEqualToTheLast(str, dist);
 
-    char assumedStr[] = "anton vlad zhozho";
+    char assumedStr[] = "anton vlad zhozho oleg";
 
     ASSERT_STRING(assumedStr, dist);
 }
@@ -501,7 +501,7 @@ static void test_getStringOfWordsThatDoNotEqualToTheLast_oneWord() {
 
     getStringOfWordsThatDoNotEqualToTheLast(str, dist);
 
-    char assumedStr[] = "";
+    char assumedStr[] = "aboba";
 
     ASSERT_STRING(assumedStr, dist);
 }
@@ -512,7 +512,7 @@ static void test_getStringOfWordsThatDoNotEqualToTheLast_allEqual() {
 
     getStringOfWordsThatDoNotEqualToTheLast(str, dist);
 
-    char assumedStr[] = "";
+    char assumedStr[] = "aboba";
 
     ASSERT_STRING(assumedStr, dist);
 }
@@ -557,6 +557,67 @@ static void testAll_getWordBeforeFirstSameWordInOtherString() {
 
     assert (getWordBeforeFirstSameWordInOtherString(s4, s1, &word) ==
             NOT_FOUND_REQUIRED_WORD);
+}
+
+static void test_deleteWordsThatEqualToTheLast_commonCase() {
+    char str[] = "oleg anton vlad zhozho oleg";
+
+    deleteWordsThatEqualToTheLast(str);
+
+    char assumedStr[] = "anton vlad zhozho oleg";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_deleteWordsThatEqualToTheLast_emptyString() {
+    char str[] = "";
+
+    deleteWordsThatEqualToTheLast(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_deleteWordsThatEqualToTheLast_oneWord() {
+    char str[] = "aboba";
+
+    deleteWordsThatEqualToTheLast(str);
+
+    char assumedStr[] = "aboba";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_deleteWordsThatEqualToTheLast_allEqual() {
+    char str[] = "aboba aboba aboba aboba aboba aboba ";
+
+    deleteWordsThatEqualToTheLast(str);
+
+    char assumedStr[] = "aboba";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_deleteWordsThatEqualToTheLast_onlySpaces() {
+    char str[] = "           ";
+
+    deleteWordsThatEqualToTheLast(str);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, str);
+}
+
+static void test_complementStringThatContainsLessWords_commonCase() {
+    char str1[MAX_STRING_SIZE] = "abc sfsd";
+    char str2[MAX_STRING_SIZE] = "a";
+
+    complementStringThatContainsLessWords(str1, str2);
+
+    char assumedStr[] = "a sfsd";
+
+    ASSERT_STRING(assumedStr, str2);
 }
 
 void test_5e() {
@@ -614,4 +675,10 @@ void test_5e() {
     test_getStringOfWordsThatDoNotEqualToTheLast_allEqual();
     test_getStringOfWordsThatDoNotEqualToTheLast_onlySpaces();
     testAll_getWordBeforeFirstSameWordInOtherString();
+    test_deleteWordsThatEqualToTheLast_commonCase();
+    test_deleteWordsThatEqualToTheLast_emptyString();
+    test_deleteWordsThatEqualToTheLast_oneWord();
+    test_deleteWordsThatEqualToTheLast_allEqual();
+    test_deleteWordsThatEqualToTheLast_onlySpaces();
+    test_complementStringThatContainsLessWords_commonCase();
 }

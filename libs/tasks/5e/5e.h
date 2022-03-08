@@ -57,4 +57,8 @@ void getStringOfWordsThatDoNotEqualToTheLast(char *source, char *dist);
 
 WordBeforeFirstSameWordInOtherStringReturnCode getWordBeforeFirstSameWordInOtherString(char *s1, char *s2, WordDescriptor *word);
 
+void deleteWordsThatEqualToTheLast(char *s);
+
+void complementStringThatContainsLessWords(char *s1, char *s2);
+
 #endif //LABS_LIBS_5E_H
