@@ -46,4 +46,6 @@ bool hasEqualWords(char *s);
 
 bool hasWordsCreatedWithTheSameLetters(char *s);
 
+void getStringOfWordsThatDoNotEqualToTheLast(char *source, char *dist);
+
 #endif //LABS_LIBS_5E_H

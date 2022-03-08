@@ -473,6 +473,61 @@ static void test_hasWordsCreatedWithTheSameLetters_noRequiredWords() {
     assert(hasWordsCreatedWithTheSameLetters(str) == false);
 }
 
+static void test_getStringOfWordsThatDoNotEqualToTheLast_commonCase() {
+    char str[] = "oleg anton vlad zhozho oleg";
+    char dist[MAX_STRING_SIZE];
+
+    getStringOfWordsThatDoNotEqualToTheLast(str, dist);
+
+    char assumedStr[] = "anton vlad zhozho";
+
+    ASSERT_STRING(assumedStr, dist);
+}
+
+static void test_getStringOfWordsThatDoNotEqualToTheLast_emptyString() {
+    char str[] = "";
+    char dist[MAX_STRING_SIZE];
+
+    getStringOfWordsThatDoNotEqualToTheLast(str, dist);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, dist);
+}
+
+static void test_getStringOfWordsThatDoNotEqualToTheLast_oneWord() {
+    char str[] = "aboba";
+    char dist[MAX_STRING_SIZE];
+
+    getStringOfWordsThatDoNotEqualToTheLast(str, dist);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, dist);
+}
+
+static void test_getStringOfWordsThatDoNotEqualToTheLast_allEqual() {
+    char str[] = "aboba aboba aboba aboba aboba ";
+    char dist[MAX_STRING_SIZE];
+
+    getStringOfWordsThatDoNotEqualToTheLast(str, dist);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, dist);
+}
+
+static void test_getStringOfWordsThatDoNotEqualToTheLast_onlySpaces() {
+    char str[] = "           ";
+    char dist[MAX_STRING_SIZE];
+
+    getStringOfWordsThatDoNotEqualToTheLast(str, dist);
+
+    char assumedStr[] = "";
+
+    ASSERT_STRING(assumedStr, dist);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -522,4 +577,9 @@ void test_5e() {
     test_hasWordsCreatedWithTheSameLetters_oneWord();
     test_hasWordsCreatedWithTheSameLetters_onlySpaces();
     test_hasWordsCreatedWithTheSameLetters_noRequiredWords();
+    test_getStringOfWordsThatDoNotEqualToTheLast_commonCase();
+    test_getStringOfWordsThatDoNotEqualToTheLast_emptyString();
+    test_getStringOfWordsThatDoNotEqualToTheLast_oneWord();
+    test_getStringOfWordsThatDoNotEqualToTheLast_allEqual();
+    test_getStringOfWordsThatDoNotEqualToTheLast_onlySpaces();
 }

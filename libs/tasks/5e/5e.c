@@ -313,3 +313,26 @@ bool hasWordsCreatedWithTheSameLetters(char *s) {
                 return true;
     return false;
 }
+
+void getStringOfWordsThatDoNotEqualToTheLast(char *source, char *dist) {
+    WordDescriptor lastWord;
+    if (!getWordReverse(source + strlen(source) - 1, source - 1, &lastWord)) {
+        *dist = '\0';
+        return;
+    }
+
+    WordDescriptor word;
+    char *start = source;
+    char *distStart = dist;
+    while (getWord(start, &word)) {
+        if (!wordcmp(lastWord, word)) {
+            distStart = copy(word.begin, word.end, distStart);
+            *distStart++ = ' ';
+        }
+        start = word.end;
+    }
+
+    if (distStart != dist)
+        distStart--;
+    *distStart = '\0';
+}
