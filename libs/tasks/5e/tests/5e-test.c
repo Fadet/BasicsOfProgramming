@@ -443,6 +443,36 @@ static void test_hasEqualWords_onlySpaces() {
     assert(hasEqualWords(str) == false);
 }
 
+static void test_hasWordsCreatedWithTheSameLetters_commonCase() {
+    char str[] = "abboba baobab abaddon";
+
+    assert(hasWordsCreatedWithTheSameLetters(str) == true);
+}
+
+static void test_hasWordsCreatedWithTheSameLetters_emptyString() {
+    char str[] = "";
+
+    assert(hasWordsCreatedWithTheSameLetters(str) == false);
+}
+
+static void test_hasWordsCreatedWithTheSameLetters_oneWord() {
+    char str[] = "abaddon";
+
+    assert(hasWordsCreatedWithTheSameLetters(str) == false);
+}
+
+static void test_hasWordsCreatedWithTheSameLetters_onlySpaces() {
+    char str[] = "abaddon";
+
+    assert(hasWordsCreatedWithTheSameLetters(str) == false);
+}
+
+static void test_hasWordsCreatedWithTheSameLetters_noRequiredWords() {
+    char str[] = "abaddon aboba";
+
+    assert(hasWordsCreatedWithTheSameLetters(str) == false);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -487,4 +517,9 @@ void test_5e() {
     test_hasEqualWords_oneWord();
     test_hasEqualWords_notFound();
     test_hasEqualWords_onlySpaces();
+    test_hasWordsCreatedWithTheSameLetters_commonCase();
+    test_hasWordsCreatedWithTheSameLetters_emptyString();
+    test_hasWordsCreatedWithTheSameLetters_oneWord();
+    test_hasWordsCreatedWithTheSameLetters_onlySpaces();
+    test_hasWordsCreatedWithTheSameLetters_noRequiredWords();
 }

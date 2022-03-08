@@ -44,4 +44,6 @@ bool lastWordInFirstStringInSecondString(char *str1, char *str2, WordDescriptor 
 
 bool hasEqualWords(char *s);
 
+bool hasWordsCreatedWithTheSameLetters(char *s);
+
 #endif //LABS_LIBS_5E_H

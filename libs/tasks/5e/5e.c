@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static bool alwaysTrue(int ch) {
     return true;
@@ -43,6 +44,18 @@ static bool isPalindrome(WordDescriptor word) {
     }
 
     return true;
+}
+
+static int char_cmp(const void *a, const void *b) {
+    char x = *((char *) a);
+    char y = *((char *) b);
+
+    if (x < y)
+        return -1;
+    else if (x > y)
+        return 1;
+    else
+        return 0;
 }
 
 void removeNonLetters(char *s) {
@@ -275,6 +288,25 @@ bool hasEqualWords(char *s) {
         return false;
 
     WordDescriptor *endOfBag = _bag1.words + _bag1.size;
+    for (WordDescriptor *i = _bag1.words; i < endOfBag; ++i)
+        for (WordDescriptor *j = i + 1; j < endOfBag; ++j)
+            if (wordcmp(*i, *j))
+                return true;
+    return false;
+}
+
+bool hasWordsCreatedWithTheSameLetters(char *s) {
+    char *endOfBuff = copy(s, s + strlen(s), _stringBuffer);
+    *endOfBuff = '\0';
+
+    getBagOfWords(&_bag1, _stringBuffer);
+    if (_bag1.size <= 1)
+        return false;
+
+    WordDescriptor *endOfBag = _bag1.words + _bag1.size;
+    for (WordDescriptor *i = _bag1.words; i < endOfBag; ++i)
+        qsort(i->begin, i->end - i->begin, sizeof(char), char_cmp);
+
     for (WordDescriptor *i = _bag1.words; i < endOfBag; ++i)
         for (WordDescriptor *j = i + 1; j < endOfBag; ++j)
             if (wordcmp(*i, *j))
