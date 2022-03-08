@@ -336,3 +336,34 @@ void getStringOfWordsThatDoNotEqualToTheLast(char *source, char *dist) {
         distStart--;
     *distStart = '\0';
 }
+
+WordBeforeFirstSameWordInOtherStringReturnCode getWordBeforeFirstSameWordInOtherString(char *s1, char *s2, WordDescriptor *word) {
+    getBagOfWords(&_bag1, s2);
+
+    if (!_bag1.size)
+        return NOT_FOUND_REQUIRED_WORD;
+
+    char *start = s1;
+    WordDescriptor previousWord;
+
+    if (!getWord(start, &previousWord))
+        return EMPTY_STRING2;
+
+    start = previousWord.end;
+
+    WordDescriptor currentWord;
+
+    if (!getWord(start, &currentWord))
+        return SINGLE_WORD;
+
+    while (getWord(start, &currentWord)) {
+        if (findWordInBag(&_bag1, currentWord) != -1) {
+            *word = previousWord;
+            return WORD_FOUND2;
+        }
+        start = currentWord.end;
+        previousWord = currentWord;
+    }
+
+    return NOT_FOUND_REQUIRED_WORD;
+}

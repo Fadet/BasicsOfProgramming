@@ -14,6 +14,13 @@ typedef enum WordBeforeFirstWordWithAReturnCode {
     EMPTY_STRING
 } WordBeforeFirstWordWithAReturnCode;
 
+typedef enum WordBeforeFirstSameWordInOtherStringReturnCode {
+    EMPTY_STRING2,
+    WORD_FOUND2,
+    SINGLE_WORD,
+    NOT_FOUND_REQUIRED_WORD
+} WordBeforeFirstSameWordInOtherStringReturnCode;
+
 void removeNonLetters(char *s);
 
 void removeAdjacentEqualLetters(char *s);
@@ -47,5 +54,7 @@ bool hasEqualWords(char *s);
 bool hasWordsCreatedWithTheSameLetters(char *s);
 
 void getStringOfWordsThatDoNotEqualToTheLast(char *source, char *dist);
+
+WordBeforeFirstSameWordInOtherStringReturnCode getWordBeforeFirstSameWordInOtherString(char *s1, char *s2, WordDescriptor *word);
 
 #endif //LABS_LIBS_5E_H

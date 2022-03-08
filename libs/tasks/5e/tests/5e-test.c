@@ -528,6 +528,37 @@ static void test_getStringOfWordsThatDoNotEqualToTheLast_onlySpaces() {
     ASSERT_STRING(assumedStr, dist);
 }
 
+static void testAll_getWordBeforeFirstSameWordInOtherString() {
+    WordDescriptor word;
+    char s1[] = "";
+    char sSearch[] = "sfsdf sfsfs sfs";
+    assert (
+            getWordBeforeFirstSameWordInOtherString(s1, sSearch, &word)
+            == EMPTY_STRING2
+    );
+    char s2[] = "ABC";
+    assert (
+            getWordBeforeFirstSameWordInOtherString(s2,sSearch, &word)
+            == SINGLE_WORD
+    );
+    char s3[] = " dgdh fhf sfs";
+    assert (
+            getWordBeforeFirstSameWordInOtherString(s3, sSearch, &word)
+            == WORD_FOUND2
+    );
+    char got[MAX_WORD_SIZE];
+    copy(word.begin, word.end, got);
+    got[word.end - word.begin] = '\0';
+    ASSERT_STRING ("fhf", got);
+
+    char s4[] = " dgdh fhf";
+    assert (getWordBeforeFirstSameWordInOtherString(s4, sSearch, &word) ==
+            NOT_FOUND_REQUIRED_WORD);
+
+    assert (getWordBeforeFirstSameWordInOtherString(s4, s1, &word) ==
+            NOT_FOUND_REQUIRED_WORD);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -582,4 +613,5 @@ void test_5e() {
     test_getStringOfWordsThatDoNotEqualToTheLast_oneWord();
     test_getStringOfWordsThatDoNotEqualToTheLast_allEqual();
     test_getStringOfWordsThatDoNotEqualToTheLast_onlySpaces();
+    testAll_getWordBeforeFirstSameWordInOtherString();
 }
