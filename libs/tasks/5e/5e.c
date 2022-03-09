@@ -420,3 +420,14 @@ void complementStringThatContainsLessWords(char *s1, char *s2) {
         *s1 = '\0';
     }
 }
+
+bool areAllWordLettersInString(char *s, WordDescriptor word) {
+    bool isSymbolInString[CHAR_MAX + 1] = {false};
+    for (char *elem = s; *elem ; ++elem)
+        isSymbolInString[*elem] = true;
+
+    for (char *elem = word.begin; elem < word.end; ++elem)
+        if (!isSymbolInString[*elem])
+            return false;
+    return true;
+}

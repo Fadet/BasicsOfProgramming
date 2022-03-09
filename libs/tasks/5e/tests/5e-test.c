@@ -653,6 +653,36 @@ static void test_complementStringThatContainsLessWords_oneIsEmpty() {
     ASSERT_STRING(assumedStr, str2);
 }
 
+static void test_areAllWordLettersInString_commonCase() {
+    char str[] = "abcd xyz";
+    char wordS[] = "abc";
+    WordDescriptor word;
+    word.begin = wordS;
+    word.end = wordS + 3;
+
+    assert(areAllWordLettersInString(str, word) == true);
+}
+
+static void test_areAllWordLettersInString_emptyString() {
+    char str[] = "";
+    char wordS[] = "abc";
+    WordDescriptor word;
+    word.begin = wordS;
+    word.end = wordS + 3;
+
+    assert(areAllWordLettersInString(str, word) == false);
+}
+
+static void test_areAllWordLettersInString_emptyWord() {
+    char str[] = "snfjd";
+    char wordS[] = "";
+    WordDescriptor word;
+    word.begin = wordS;
+    word.end = wordS;
+
+    assert(areAllWordLettersInString(str, word) == true);
+}
+
 void test_5e() {
     test_removeNonLetters_commonCase();
     test_removeNonLetters_emptyString();
@@ -717,4 +747,7 @@ void test_5e() {
     test_complementStringThatContainsLessWords_emptyString();
     test_complementStringThatContainsLessWords_sameAmountOfWords();
     test_complementStringThatContainsLessWords_oneIsEmpty();
+    test_areAllWordLettersInString_commonCase();
+    test_areAllWordLettersInString_emptyString();
+    test_areAllWordLettersInString_emptyWord();
 }

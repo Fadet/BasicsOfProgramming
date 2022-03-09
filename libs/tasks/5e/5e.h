@@ -61,4 +61,6 @@ void deleteWordsThatEqualToTheLast(char *s);
 
 void complementStringThatContainsLessWords(char *s1, char *s2);
 
+bool areAllWordLettersInString(char *s, WordDescriptor word);
+
 #endif //LABS_LIBS_5E_H

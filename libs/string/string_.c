@@ -5,6 +5,7 @@
 #include "string_.h"
 #include <ctype.h>
 #include <memory.h>
+#include <limits.h>
 
 size_t strlen(const char *begin) {
     const char *end = begin;
