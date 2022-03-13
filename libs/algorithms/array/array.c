@@ -89,7 +89,7 @@ int isPalindrome(const int *a, const size_t n) {
     return 1;
 }
 
-void selectionSort(int *a, const size_t n, int (*f)(int, int)) {
+void selectionSort_(int *a, const size_t n, int (*f)(int, int)) {
     if (n <= 1)
         return;
     for (size_t i = 0; i < n; ++i) {
@@ -219,3 +219,11 @@ int arraySum(const int *a, const int n) {
     }
     return sum;
 }
+
+bool isOrdered(const int *a, const size_t n) {
+    for (size_t i = 1; i < n; ++i)
+        if (a[i - 1] > a[i])
+            return false;
+    return true;
+}
+

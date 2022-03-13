@@ -2,6 +2,7 @@
 #define LABS_LIBS_ALGORITHM_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 //possible types of a sequence
 enum SequenceType{
@@ -56,7 +57,7 @@ void reverseArray(int *a, const size_t n);
 int isPalindrome(const int *a, const size_t n);
 
 // sorts array a of size n by predicate f
-void selectionSort(int *a, const size_t n, int (*f)(int, int));
+void selectionSort_(int *a, const size_t n, int (*f)(int, int));
 
 // deletes odd numbers in array a of size n
 void deleteOdd(int *a, int *n);
@@ -102,5 +103,9 @@ int getSequenceType(const int *a, const size_t n);
 
 // returns a sum of array a of size n
 int arraySum(const int *a, int n);
+
+// returns true if array is ordered by non-decreasing
+// else returns false
+bool isOrdered(const int *a, size_t n);
 
 #endif //LABS_LIBS_ALGORITHM_H

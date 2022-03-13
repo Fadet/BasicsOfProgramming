@@ -5,6 +5,8 @@
 //#include "libs/string/tests/string_-test.h"
 //#include "libs/tasks/5e/tests/5e-test.h"
 
+#include "libs/algorithms/sorts/tests/sorts-test.h"
+
 int main() {
 //    test_vector();
 //    test_vectorVoid();
@@ -12,6 +14,9 @@ int main() {
 //    test_5d();
 //    test_string_();
 //    test_5e();
+//
+    timeExperiment();
+
 
     return 0;
 }
