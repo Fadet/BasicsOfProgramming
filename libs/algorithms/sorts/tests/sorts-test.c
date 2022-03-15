@@ -9,34 +9,36 @@
 
 void checkTime(void (*sortFunc)(int *, size_t),
                void (*generateFunc)(int *, size_t),
-               size_t size, char *experimentName) {
+               size_t size, char *experimentName,
+               FILE *log_file) {
+
     static size_t runCounter = 1;
 
     int innerBuffer[100000];
     generateFunc(innerBuffer, size);
-    printf(" Run #%zu| ", runCounter++);
-    printf(" Name: %s\n", experimentName);
+    fprintf(log_file, " Run #%zu| ", runCounter++);
+    fprintf(log_file, " Name: %s\n", experimentName);
 
     double time;
     TIME_TEST({
                   sortFunc(innerBuffer, size);
               }, time);
 
-    printf("Status: ");
+    fprintf(log_file, "Status: ");
     if (isOrdered(innerBuffer, size)) {
-        printf("OK! Time: %.3f\n", time);
+        fprintf(log_file, "OK! Time: %.3f\n", time);
 
         char filename[256];
         sprintf(filename, "./data/%s.csv", experimentName);
         FILE *f = fopen(filename, "a");
         if (NULL == f) {
-            printf("FileOpenError %s", filename);
+            fprintf(log_file, "FileOpenError %s", filename);
             exit(1);
         }
         fprintf(f, "%zu; %.3f\n", size, time);
         fclose(f);
     } else {
-        printf("Wrong!\n");
+        fprintf(log_file, "Wrong!\n");
 
         outputArray(innerBuffer, size);
 
@@ -65,9 +67,16 @@ void timeExperiment() {
 
     const unsigned CASES_N = ARRAY_SIZE(generating);
 
+    char log_filename[128] = "./logs/time.log";
+    FILE *log_file = fopen(log_filename, "a");
+    if (NULL == log_file) {
+        printf("FileOpenError %s", log_filename);
+        exit(1);
+    }
+
     for (size_t size = 10000; size <= 100000; size += 10000) {
-        printf("----------------------------\n");
-        printf("Size: %d\n", size);
+        fprintf(log_file, "----------------------------\n");
+        fprintf(log_file, "Size: %d\n", size);
 
         for (int i = 0; i < FUNCS_N; i++) {
             for (int j = 0; j < CASES_N; j++) {
@@ -77,42 +86,45 @@ void timeExperiment() {
                 checkTime(sorts[i].sort,
                           generating[j].generate,
                           size,
-                          filename);
+                          filename, log_file);
 
             }
         }
 
-        printf("\n");
+        fprintf(log_file, "\n");
     }
+
+    fclose(log_file);
 }
 
 void checkCompares(long long int (*sortFunc)(int *, size_t),
-                   void (*generateFunc)(int *, size_t), size_t size,
-                   char *experimentName) {
+                   void (*generateFunc)(int *, size_t),
+                   size_t size, char *experimentName,
+                   FILE *log_file) {
     static size_t runCounter = 1;
 
     int innerBuffer[100000];
     generateFunc(innerBuffer, size);
-    printf(" Run #%zu| ", runCounter++);
-    printf(" Name: %s\n", experimentName);
+    fprintf(log_file, " Run #%zu| ", runCounter++);
+    fprintf(log_file, " Name: %s\n", experimentName);
 
     long long nComps = sortFunc(innerBuffer, size);
 
-    printf("Status: ");
+    fprintf(log_file, "Status: ");
     if (isOrdered(innerBuffer, size)) {
-        printf("OK! Compares: %lld\n", nComps);
+        fprintf(log_file, "OK! Compares: %lld\n", nComps);
 
         char filename[256];
         sprintf(filename, "./data/%s.csv", experimentName);
         FILE *f = fopen(filename, "a");
         if (NULL == f) {
-            printf("FileOpenError %s", filename);
+            fprintf(log_file, "FileOpenError %s", filename);
             exit(1);
         }
         fprintf(f, "%zu; %lld\n", size, nComps);
         fclose(f);
     } else {
-        printf("Wrong!\n");
+        fprintf(log_file, "Wrong!\n");
 
         outputArray(innerBuffer, size);
 
@@ -140,9 +152,16 @@ void comparesExperiment() {
 
     const unsigned CASES_N = ARRAY_SIZE(generating);
 
+    char log_filename[128] = "./logs/compares.log";
+    FILE *log_file = fopen(log_filename, "a");
+    if (NULL == log_file) {
+        printf("FileOpenError %s", log_filename);
+        exit(1);
+    }
+
     for (size_t size = 10000; size <= 100000; size += 10000) {
-        printf("----------------------------\n");
-        printf("Size: %d\n", size);
+        fprintf(log_file, "----------------------------\n");
+        fprintf(log_file, "Size: %d\n", size);
 
         for (int i = 0; i < FUNCS_N; i++) {
             for (int j = 0; j < CASES_N; j++) {
@@ -152,12 +171,13 @@ void comparesExperiment() {
                 checkCompares(sorts[i].sort,
                           generating[j].generate,
                           size,
-                          filename);
+                          filename, log_file);
 
             }
         }
 
-        printf("\n");
+        fprintf(log_file, "\n");
     }
 
+    fclose(log_file);
 }
