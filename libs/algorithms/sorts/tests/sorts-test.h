@@ -32,10 +32,22 @@ typedef struct GeneratingFunc {
     char name[64];
 } GeneratingFunc;
 
+typedef struct SortFuncCompares {
+    long long (*sort)(int *a, size_t n);
+
+    char name[64];
+} SortFuncCompares;
+
 void checkTime(void (*sortFunc)(int *, size_t),
                void (*generateFunc)(int *, size_t),
                size_t size, char *experimentName);
 
+void checkCompares(long long (*sortFunc)(int *, size_t),
+                   void (*generateFunc)(int*, size_t),
+                   size_t size, char *experimentName);
+
 void timeExperiment();
+
+void comparesExperiment();
 
 #endif //LABS_LIBS_SORTS_TEST_H

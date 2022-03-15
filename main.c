@@ -14,9 +14,9 @@ int main() {
 //    test_5d();
 //    test_string_();
 //    test_5e();
-//
-    timeExperiment();
 
+    timeExperiment();
+    comparesExperiment();
 
     return 0;
 }

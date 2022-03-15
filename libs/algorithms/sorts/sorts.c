@@ -9,6 +9,19 @@
 
 #define SWAP(a, b) swap(a, b, sizeof(int))
 
+long long nCompsMergeSort;
+
+static int cmp_int(const void *a, const void *b) {
+    int x = *((int *) a);
+    int y = *((int *) b);
+    if (x < y)
+        return -1;
+    if (x > y)
+        return 1;
+
+    return 0;
+}
+
 void merge(const int *a, const size_t sizeA,
            const int *b, const size_t sizeB,
            int *c) {
@@ -94,17 +107,21 @@ void shellSort(int *a, size_t n) {
                 SWAP(&a[j], &a[j + d]);
 }
 
-static void getPrefixSums(int *a, size_t n) {
+static long long getPrefixSums(int *a, size_t n) {
+    long long nComps = 0;
+
     int prev = a[0];
     *a = 0;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; ++nComps && i < n; i++) {
         int t = a[i];
         a[i] = prev + a[i - 1];
         prev = t;
     }
+
+    return nComps;
 }
 
-void LSD(int *a, size_t n) {
+void LSD_sort(int *a, size_t n) {
     int *buffer = (int *) calloc(n, sizeof(int));
 
     const int STEP = 8;
@@ -114,25 +131,25 @@ void LSD(int *a, size_t n) {
         int values[UCHAR_MAX + 1] = {0};
 
         for (size_t i = 0; i < n; i++) {
-            int curByte;
+            int currentByte;
             if (byte + 1 == sizeof(int))
-                curByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
+                currentByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
             else
-                curByte = (a[i] >> (byte * STEP)) & MASK;
+                currentByte = (a[i] >> (byte * STEP)) & MASK;
 
-            values[curByte]++;
+            values[currentByte]++;
         }
 
         getPrefixSums(values, UCHAR_MAX + 1);
 
         for (size_t i = 0; i < n; i++) {
-            int curByte;
+            int currentByte;
             if (byte + 1 == sizeof(int))
-                curByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
+                currentByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
             else
-                curByte = (a[i] >> (byte * STEP)) & MASK;
+                currentByte = (a[i] >> (byte * STEP)) & MASK;
 
-            buffer[values[curByte]++] = a[i];
+            buffer[values[currentByte]++] = a[i];
         }
 
         memcpy(a, buffer, sizeof(int) * n);
@@ -141,17 +158,153 @@ void LSD(int *a, size_t n) {
     free(buffer);
 }
 
-int cmp_int(const void *a, const void *b) {
-    int arg1 = *(int *) a;
-    int arg2 = *(int *) b;
-    if (arg1 < arg2)
-        return -1;
-    if (arg1 > arg2)
-        return 1;
-
-    return 0;
-}
-
 void stdlibQsort(int *a, size_t n) {
     qsort(a, n, sizeof(int), cmp_int);
+}
+
+void getMergeComps(const int *a, const size_t sizeA,
+                        const int *b, const size_t sizeB,
+                        int *c) {
+    size_t indexA = 0;
+    size_t indexB = 0;
+    while (++nCompsMergeSort && (indexA < sizeA || indexB < sizeB))
+        if (++nCompsMergeSort && (indexB == sizeB || indexA < sizeA && a[indexA] < b[indexB])) {
+            c[indexA + indexB] = a[indexA];
+            indexA++;
+        } else {
+            c[indexA + indexB] = b[indexB];
+            indexB++;
+        }
+}
+
+void _getMergeSortComps(int *a, int left, int right,
+                        int *buf) {
+    int size = right - left;
+    if (++nCompsMergeSort && size <= 1)
+        return;
+
+    int middle = left + (right - left) / 2;
+    _getMergeSortComps(a, left, middle, buf);
+    _getMergeSortComps(a, middle, right, buf);
+
+    getMergeComps(a + left, middle - left,
+                            a + middle, right - middle,
+                            buf);
+    memcpy(a + left, buf, size * sizeof(int));
+}
+
+long long getMergeSortComps(int *a, size_t n) {
+    nCompsMergeSort = 0;
+
+    int *buffer = (int *) malloc(sizeof(int) * n);
+    _getMergeSortComps(a, 0, n, buffer);
+    free(buffer);
+
+    return nCompsMergeSort;
+}
+
+long long getSelectionSortComps(int *a, size_t n) {
+    long long nComps = 0;
+
+    if (++nComps && n <= 1)
+        return nComps;
+    for (size_t i = 0; ++nComps && i < n; ++i) {
+        size_t currentIndex = i;
+        for (size_t j = i + 1; ++nComps && j < n; j++) {
+            if (++nComps && a[j] < a[currentIndex])
+                currentIndex = j;
+        }
+        SWAP(&a[i], &a[currentIndex]);
+    }
+
+    return nComps;
+}
+
+long long getInsertionSortComps(int *a, size_t n) {
+    long long nComps = 0;
+
+    for (int i = 1; ++nComps && i < n; ++i) {
+        int t = a[i];
+        int j = i;
+        while (++nComps && j > 0 && a[j - 1] > t) {
+            a[j] = a[j - 1];
+            j--;
+        }
+        a[j] = t;
+    }
+
+    return nComps;
+}
+
+long long getCombSortComps(int *a, size_t n) {
+    long long nComps = 0;
+
+    double factor = 1.24733;
+    size_t step = n;
+    bool swapped = true;
+    while (++nComps && (step > 1 || swapped)) {
+        if (++nComps && step > 1)
+            step /= factor;
+        swapped = false;
+        for (size_t i = 0, j = i + step; ++nComps && j < n; ++i, ++j) {
+            if (++nComps && a[i] > a[j]) {
+                SWAP(&a[i], &a[j]);
+                swapped = true;
+            }
+        }
+    }
+
+    return nComps;
+}
+
+long long getShellSortComps(int *a, size_t n) {
+    long long nComps = 0;
+
+    for (int d = n / 2; ++nComps && d > 0; d /= 2)
+        for (int i = d; ++nComps && i < n; ++i)
+            for (int j = i - d; ++nComps && j >= 0 && a[j] > a[j + d]; j -= d)
+                SWAP(&a[j], &a[j + d]);
+
+    return nComps;
+}
+
+long long getLSD_sortComps(int *a, size_t n) {
+    long long nComps = 0;
+
+    int *buffer = (int *) calloc(n, sizeof(int));
+
+    const int STEP = 8;
+    const int MASK = 0b11111111;
+
+    for (int byte = 0; ++nComps && byte < sizeof(int); byte++) {
+        int values[UCHAR_MAX + 1] = {0};
+
+        for (size_t i = 0; ++nComps && i < n; i++) {
+            int currentByte;
+            if (++nComps && byte + 1 == sizeof(int))
+                currentByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
+            else
+                currentByte = (a[i] >> (byte * STEP)) & MASK;
+
+            values[currentByte]++;
+        }
+
+        nComps += getPrefixSums(values, UCHAR_MAX + 1);
+
+        for (size_t i = 0; ++nComps && i < n; i++) {
+            int currentByte;
+            if (++nComps && byte + 1 == sizeof(int))
+                currentByte = ((a[i] >> (byte * STEP)) + CHAR_MAX + 1) & MASK;
+            else
+                currentByte = (a[i] >> (byte * STEP)) & MASK;
+
+            buffer[values[currentByte]++] = a[i];
+        }
+
+        memcpy(a, buffer, sizeof(int) * n);
+    }
+
+    free(buffer);
+
+    return nComps;
 }
