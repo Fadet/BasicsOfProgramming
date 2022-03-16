@@ -13,6 +13,12 @@ void outputArray(const int *a, const size_t n) {
     printf("\n");
 }
 
+void outputArrayFile(const int *a, const size_t n, FILE *file) {
+    for (int i = 0; i < n; ++i)
+        fprintf(file, "%d ", a[i]);
+    fprintf(file, "\n");
+}
+
 int arrayFind(const int *a, const size_t n, const int x) {
     int i = 0;
     while (i < n && a[i] != x)

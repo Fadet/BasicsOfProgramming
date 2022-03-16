@@ -1,0 +1,390 @@
+----------------------------
+Size: 10000
+ Run #1|  Name: mergeSort_random_compares
+Status: OK! Compares: 297230
+ Run #2|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 297230
+ Run #3|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 297230
+ Run #4|  Name: selectionSort_random_compares
+Status: OK! Compares: 100010002
+ Run #5|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 100010002
+ Run #6|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 100010002
+ Run #7|  Name: insertionSort_random_compares
+Status: OK! Compares: 24935975
+ Run #8|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 19999
+ Run #9|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 50014999
+ Run #10|  Name: combSort_random_compares
+Status: OK! Compares: 699402
+ Run #11|  Name: combSort_ordered_compares
+Status: OK! Compares: 659400
+ Run #12|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 679401
+ Run #13|  Name: shellSort_random_compares
+Status: OK! Compares: 379885
+ Run #14|  Name: shellSort_ordered_compares
+Status: OK! Compares: 240037
+ Run #15|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 302597
+ Run #16|  Name: LSD_sort_random_compares
+Status: OK! Compares: 161037
+ Run #17|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 161037
+ Run #18|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 161037
+
+----------------------------
+Size: 20000
+ Run #19|  Name: mergeSort_random_compares
+Status: OK! Compares: 634462
+ Run #20|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 634462
+ Run #21|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 634462
+ Run #22|  Name: selectionSort_random_compares
+Status: OK! Compares: 400020002
+ Run #23|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 400020002
+ Run #24|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 400020002
+ Run #25|  Name: insertionSort_random_compares
+Status: OK! Compares: 99577165
+ Run #26|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 39999
+ Run #27|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 200029999
+ Run #28|  Name: combSort_random_compares
+Status: OK! Compares: 1518605
+ Run #29|  Name: combSort_ordered_compares
+Status: OK! Compares: 1438603
+ Run #30|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 1478604
+ Run #31|  Name: shellSort_random_compares
+Status: OK! Compares: 869158
+ Run #32|  Name: shellSort_ordered_compares
+Status: OK! Compares: 520039
+ Run #33|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 655159
+ Run #34|  Name: LSD_sort_random_compares
+Status: OK! Compares: 321037
+ Run #35|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 321037
+ Run #36|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 321037
+
+----------------------------
+Size: 30000
+ Run #37|  Name: mergeSort_random_compares
+Status: OK! Compares: 984462
+ Run #38|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 984462
+ Run #39|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 984462
+ Run #40|  Name: selectionSort_random_compares
+Status: OK! Compares: 900030002
+ Run #41|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 900030002
+ Run #42|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 900030002
+ Run #43|  Name: insertionSort_random_compares
+Status: OK! Compares: 224991888
+ Run #44|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 59999
+ Run #45|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 450044999
+ Run #46|  Name: combSort_random_compares
+Status: OK! Compares: 2337738
+ Run #47|  Name: combSort_ordered_compares
+Status: OK! Compares: 2217736
+ Run #48|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 2277737
+ Run #49|  Name: shellSort_random_compares
+Status: OK! Compares: 1310681
+ Run #50|  Name: shellSort_ordered_compares
+Status: OK! Compares: 780043
+ Run #51|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 987035
+ Run #52|  Name: LSD_sort_random_compares
+Status: OK! Compares: 481037
+ Run #53|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 481037
+ Run #54|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 481037
+
+----------------------------
+Size: 40000
+ Run #55|  Name: mergeSort_random_compares
+Status: OK! Compares: 1348926
+ Run #56|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 1348926
+ Run #57|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 1348926
+ Run #58|  Name: selectionSort_random_compares
+Status: OK! Compares: 1600040002
+ Run #59|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 1600040002
+ Run #60|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 1600040002
+ Run #61|  Name: insertionSort_random_compares
+Status: OK! Compares: 397547388
+ Run #62|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 79999
+ Run #63|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 800059999
+ Run #64|  Name: combSort_random_compares
+Status: OK! Compares: 3276860
+ Run #65|  Name: combSort_ordered_compares
+Status: OK! Compares: 3116858
+ Run #66|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 3196859
+ Run #67|  Name: shellSort_random_compares
+Status: OK! Compares: 1988651
+ Run #68|  Name: shellSort_ordered_compares
+Status: OK! Compares: 1120041
+ Run #69|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 1410281
+ Run #70|  Name: LSD_sort_random_compares
+Status: OK! Compares: 641037
+ Run #71|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 641037
+ Run #72|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 641037
+
+----------------------------
+Size: 50000
+ Run #73|  Name: mergeSort_random_compares
+Status: OK! Compares: 1718926
+ Run #74|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 1718926
+ Run #75|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 1718926
+ Run #76|  Name: selectionSort_random_compares
+Status: OK! Compares: 2500050002
+ Run #77|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 2500050002
+ Run #78|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 2500050002
+ Run #79|  Name: insertionSort_random_compares
+Status: OK! Compares: 626375531
+ Run #80|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 99999
+ Run #81|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 1250074999
+ Run #82|  Name: combSort_random_compares
+Status: OK! Compares: 4196051
+ Run #83|  Name: combSort_ordered_compares
+Status: OK! Compares: 3996049
+ Run #84|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 4096050
+ Run #85|  Name: shellSort_random_compares
+Status: OK! Compares: 2649637
+ Run #86|  Name: shellSort_ordered_compares
+Status: OK! Compares: 1400043
+ Run #87|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 1797323
+ Run #88|  Name: LSD_sort_random_compares
+Status: OK! Compares: 801037
+ Run #89|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 801037
+ Run #90|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 801037
+
+----------------------------
+Size: 60000
+ Run #91|  Name: mergeSort_random_compares
+Status: OK! Compares: 2088926
+ Run #92|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 2088926
+ Run #93|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 2088926
+ Run #94|  Name: selectionSort_random_compares
+Status: OK! Compares: 3600060002
+ Run #95|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 3600060002
+ Run #96|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 3600060002
+ Run #97|  Name: insertionSort_random_compares
+Status: OK! Compares: 897787730
+ Run #98|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 119999
+ Run #99|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 1800089999
+ Run #100|  Name: combSort_random_compares
+Status: OK! Compares: 5155178
+ Run #101|  Name: combSort_ordered_compares
+Status: OK! Compares: 4915176
+ Run #102|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 5035177
+ Run #103|  Name: shellSort_random_compares
+Status: OK! Compares: 3075763
+ Run #104|  Name: shellSort_ordered_compares
+Status: OK! Compares: 1680045
+ Run #105|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 2124029
+ Run #106|  Name: LSD_sort_random_compares
+Status: OK! Compares: 961037
+ Run #107|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 961037
+ Run #108|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 961037
+
+----------------------------
+Size: 70000
+ Run #109|  Name: mergeSort_random_compares
+Status: OK! Compares: 2467854
+ Run #110|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 2467854
+ Run #111|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 2467854
+ Run #112|  Name: selectionSort_random_compares
+Status: OK! Compares: 4900070002
+ Run #113|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 4900070002
+ Run #114|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 4900070002
+ Run #115|  Name: insertionSort_random_compares
+Status: OK! Compares: 1224335362
+ Run #116|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 139999
+ Run #117|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 2450104999
+ Run #118|  Name: combSort_random_compares
+Status: OK! Compares: 6154335
+ Run #119|  Name: combSort_ordered_compares
+Status: OK! Compares: 5734332
+ Run #120|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 5874333
+ Run #121|  Name: shellSort_random_compares
+Status: OK! Compares: 3758251
+ Run #122|  Name: shellSort_ordered_compares
+Status: OK! Compares: 2100045
+ Run #123|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 2601117
+ Run #124|  Name: LSD_sort_random_compares
+Status: OK! Compares: 1121037
+ Run #125|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 1121037
+ Run #126|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 1121037
+
+----------------------------
+Size: 80000
+ Run #127|  Name: mergeSort_random_compares
+Status: OK! Compares: 2857854
+ Run #128|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 2857854
+ Run #129|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 2857854
+ Run #130|  Name: selectionSort_random_compares
+Status: OK! Compares: 6400080002
+ Run #131|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 6400080002
+ Run #132|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 6400080002
+ Run #133|  Name: insertionSort_random_compares
+Status: OK! Compares: 1596769072
+ Run #134|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 159999
+ Run #135|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 3200119999
+ Run #136|  Name: combSort_random_compares
+Status: OK! Compares: 7033477
+ Run #137|  Name: combSort_ordered_compares
+Status: OK! Compares: 6713475
+ Run #138|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 6873476
+ Run #139|  Name: shellSort_random_compares
+Status: OK! Compares: 4628400
+ Run #140|  Name: shellSort_ordered_compares
+Status: OK! Compares: 2400043
+ Run #141|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 3020523
+ Run #142|  Name: LSD_sort_random_compares
+Status: OK! Compares: 1281037
+ Run #143|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 1281037
+ Run #144|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 1281037
+
+----------------------------
+Size: 90000
+ Run #145|  Name: mergeSort_random_compares
+Status: OK! Compares: 3247854
+ Run #146|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 3247854
+ Run #147|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 3247854
+ Run #148|  Name: selectionSort_random_compares
+Status: OK! Compares: 8100090002
+ Run #149|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 8100090002
+ Run #150|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 8100090002
+ Run #151|  Name: insertionSort_random_compares
+Status: OK! Compares: 2026322401
+ Run #152|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 179999
+ Run #153|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 4050134999
+ Run #154|  Name: combSort_random_compares
+Status: OK! Compares: 8092656
+ Run #155|  Name: combSort_ordered_compares
+Status: OK! Compares: 7552653
+ Run #156|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 7732654
+ Run #157|  Name: shellSort_random_compares
+Status: OK! Compares: 4907079
+ Run #158|  Name: shellSort_ordered_compares
+Status: OK! Compares: 2700051
+ Run #159|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 3386291
+ Run #160|  Name: LSD_sort_random_compares
+Status: OK! Compares: 1441037
+ Run #161|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 1441037
+ Run #162|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 1441037
+
+----------------------------
+Size: 100000
+ Run #163|  Name: mergeSort_random_compares
+Status: OK! Compares: 3637854
+ Run #164|  Name: mergeSort_ordered_compares
+Status: OK! Compares: 3637854
+ Run #165|  Name: mergeSort_orderedBackwards_compares
+Status: OK! Compares: 3637854
+ Run #166|  Name: selectionSort_random_compares
+Status: OK! Compares: 10000100002
+ Run #167|  Name: selectionSort_ordered_compares
+Status: OK! Compares: 10000100002
+ Run #168|  Name: selectionSort_orderedBackwards_compares
+Status: OK! Compares: 10000100002
+ Run #169|  Name: insertionSort_random_compares
+Status: OK! Compares: 2505489685
+ Run #170|  Name: insertionSort_ordered_compares
+Status: OK! Compares: 199999
+ Run #171|  Name: insertionSort_orderedBackwards_compares
+Status: OK! Compares: 5000149999
+ Run #172|  Name: combSort_random_compares
+Status: OK! Compares: 8991726
+ Run #173|  Name: combSort_ordered_compares
+Status: OK! Compares: 8591724
+ Run #174|  Name: combSort_orderedBackwards_compares
+Status: OK! Compares: 8791725
+ Run #175|  Name: shellSort_random_compares
+Status: OK! Compares: 5793799
+ Run #176|  Name: shellSort_ordered_compares
+Status: OK! Compares: 3000045
+ Run #177|  Name: shellSort_orderedBackwards_compares
+Status: OK! Compares: 3844605
+ Run #178|  Name: LSD_sort_random_compares
+Status: OK! Compares: 1601037
+ Run #179|  Name: LSD_sort_ordered_compares
+Status: OK! Compares: 1601037
+ Run #180|  Name: LSD_sort_orderedBackwards_compares
+Status: OK! Compares: 1601037
+

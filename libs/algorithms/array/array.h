@@ -2,6 +2,7 @@
 #define LABS_LIBS_ALGORITHM_H
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 
 //possible types of a sequence
@@ -19,6 +20,9 @@ void inputArray(int *a, const size_t n);
 
 // prints array a of size n
 void outputArray(const int *a, const size_t n);
+
+// prints array a of size n to file
+void outputArrayFile(const int *a, size_t n, FILE *file);
 
 // returns an index of the first found x in array a of size n
 // returns -1 if x is not found

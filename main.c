@@ -20,19 +20,15 @@ int main() {
 //    test_string_();
 //    test_5e();
 
-
-    double time;
     pthread_t timeExperimentThread;
-    TIME_TEST({
-                  pthread_create(&timeExperimentThread, NULL,
-                                 timeExperimentThr, NULL);
-              }, time);
+    pthread_create(&timeExperimentThread, NULL,
+                   timeExperimentThr, NULL);
+
 
     comparesExperiment();
+//    timeExperiment();
 
     pthread_join(timeExperimentThread, NULL);
-
-    printf("TimeToCreateThread: %f\n", time);
 
     return 0;
 }

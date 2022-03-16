@@ -1,0 +1,480 @@
+----------------------------
+Size: 100000
+ Run #1|  Name: mergeSort_random_time
+Status: OK! Time: 0.011
+ Run #2|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.005
+ Run #3|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.005
+ Run #4|  Name: combSort_random_time
+Status: OK! Time: 0.020
+ Run #5|  Name: combSort_ordered_time
+Status: OK! Time: 0.007
+ Run #6|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.009
+ Run #7|  Name: shellSort_random_time
+Status: OK! Time: 0.049
+ Run #8|  Name: shellSort_ordered_time
+Status: OK! Time: 0.003
+ Run #9|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.013
+ Run #10|  Name: LSD_sort_random_time
+Status: OK! Time: 0.003
+ Run #11|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.003
+ Run #12|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.002
+ Run #13|  Name: stdQSort_random_time
+Status: OK! Time: 0.012
+ Run #14|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.003
+ Run #15|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.004
+
+----------------------------
+Size: 200000
+ Run #16|  Name: mergeSort_random_time
+Status: OK! Time: 0.023
+ Run #17|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.011
+ Run #18|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.010
+ Run #19|  Name: combSort_random_time
+Status: OK! Time: 0.040
+ Run #20|  Name: combSort_ordered_time
+Status: OK! Time: 0.015
+ Run #21|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.020
+ Run #22|  Name: shellSort_random_time
+Status: OK! Time: 0.113
+ Run #23|  Name: shellSort_ordered_time
+Status: OK! Time: 0.006
+ Run #24|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.029
+ Run #25|  Name: LSD_sort_random_time
+Status: OK! Time: 0.006
+ Run #26|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.006
+ Run #27|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.005
+ Run #28|  Name: stdQSort_random_time
+Status: OK! Time: 0.027
+ Run #29|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.008
+ Run #30|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.008
+
+----------------------------
+Size: 300000
+ Run #31|  Name: mergeSort_random_time
+Status: OK! Time: 0.036
+ Run #32|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.017
+ Run #33|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.015
+ Run #34|  Name: combSort_random_time
+Status: OK! Time: 0.071
+ Run #35|  Name: combSort_ordered_time
+Status: OK! Time: 0.024
+ Run #36|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.032
+ Run #37|  Name: shellSort_random_time
+Status: OK! Time: 0.176
+ Run #38|  Name: shellSort_ordered_time
+Status: OK! Time: 0.011
+ Run #39|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.043
+ Run #40|  Name: LSD_sort_random_time
+Status: OK! Time: 0.010
+ Run #41|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.009
+ Run #42|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.009
+ Run #43|  Name: stdQSort_random_time
+Status: OK! Time: 0.036
+ Run #44|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.014
+ Run #45|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.014
+
+----------------------------
+Size: 400000
+ Run #46|  Name: mergeSort_random_time
+Status: OK! Time: 0.050
+ Run #47|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.024
+ Run #48|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.022
+ Run #49|  Name: combSort_random_time
+Status: OK! Time: 0.090
+ Run #50|  Name: combSort_ordered_time
+Status: OK! Time: 0.031
+ Run #51|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.050
+ Run #52|  Name: shellSort_random_time
+Status: OK! Time: 0.266
+ Run #53|  Name: shellSort_ordered_time
+Status: OK! Time: 0.014
+ Run #54|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.073
+ Run #55|  Name: LSD_sort_random_time
+Status: OK! Time: 0.013
+ Run #56|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.012
+ Run #57|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.012
+ Run #58|  Name: stdQSort_random_time
+Status: OK! Time: 0.048
+ Run #59|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.019
+ Run #60|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.020
+
+----------------------------
+Size: 500000
+ Run #61|  Name: mergeSort_random_time
+Status: OK! Time: 0.064
+ Run #62|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.033
+ Run #63|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.028
+ Run #64|  Name: combSort_random_time
+Status: OK! Time: 0.111
+ Run #65|  Name: combSort_ordered_time
+Status: OK! Time: 0.047
+ Run #66|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.060
+ Run #67|  Name: shellSort_random_time
+Status: OK! Time: 0.318
+ Run #68|  Name: shellSort_ordered_time
+Status: OK! Time: 0.017
+ Run #69|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.073
+ Run #70|  Name: LSD_sort_random_time
+Status: OK! Time: 0.014
+ Run #71|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.014
+ Run #72|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.015
+ Run #73|  Name: stdQSort_random_time
+Status: OK! Time: 0.056
+ Run #74|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.022
+ Run #75|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.023
+
+----------------------------
+Size: 600000
+ Run #76|  Name: mergeSort_random_time
+Status: OK! Time: 0.075
+ Run #77|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.036
+ Run #78|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.033
+ Run #79|  Name: combSort_random_time
+Status: OK! Time: 0.139
+ Run #80|  Name: combSort_ordered_time
+Status: OK! Time: 0.056
+ Run #81|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.073
+ Run #82|  Name: shellSort_random_time
+Status: OK! Time: 0.415
+ Run #83|  Name: shellSort_ordered_time
+Status: OK! Time: 0.022
+ Run #84|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.089
+ Run #85|  Name: LSD_sort_random_time
+Status: OK! Time: 0.023
+ Run #86|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.018
+ Run #87|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.018
+ Run #88|  Name: stdQSort_random_time
+Status: OK! Time: 0.066
+ Run #89|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.027
+ Run #90|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.028
+
+----------------------------
+Size: 700000
+ Run #91|  Name: mergeSort_random_time
+Status: OK! Time: 0.097
+ Run #92|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.042
+ Run #93|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.040
+ Run #94|  Name: combSort_random_time
+Status: OK! Time: 0.166
+ Run #95|  Name: combSort_ordered_time
+Status: OK! Time: 0.070
+ Run #96|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.088
+ Run #97|  Name: shellSort_random_time
+Status: OK! Time: 0.487
+ Run #98|  Name: shellSort_ordered_time
+Status: OK! Time: 0.025
+ Run #99|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.109
+ Run #100|  Name: LSD_sort_random_time
+Status: OK! Time: 0.021
+ Run #101|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.022
+ Run #102|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.021
+ Run #103|  Name: stdQSort_random_time
+Status: OK! Time: 0.078
+ Run #104|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.030
+ Run #105|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.031
+
+----------------------------
+Size: 800000
+ Run #106|  Name: mergeSort_random_time
+Status: OK! Time: 0.121
+ Run #107|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.057
+ Run #108|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.045
+ Run #109|  Name: combSort_random_time
+Status: OK! Time: 0.185
+ Run #110|  Name: combSort_ordered_time
+Status: OK! Time: 0.071
+ Run #111|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.104
+ Run #112|  Name: shellSort_random_time
+Status: OK! Time: 0.583
+ Run #113|  Name: shellSort_ordered_time
+Status: OK! Time: 0.029
+ Run #114|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.128
+ Run #115|  Name: LSD_sort_random_time
+Status: OK! Time: 0.024
+ Run #116|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.025
+ Run #117|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.025
+ Run #118|  Name: stdQSort_random_time
+Status: OK! Time: 0.088
+ Run #119|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.035
+ Run #120|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.036
+
+----------------------------
+Size: 900000
+ Run #121|  Name: mergeSort_random_time
+Status: OK! Time: 0.112
+ Run #122|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.055
+ Run #123|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.051
+ Run #124|  Name: combSort_random_time
+Status: OK! Time: 0.210
+ Run #125|  Name: combSort_ordered_time
+Status: OK! Time: 0.078
+ Run #126|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.108
+ Run #127|  Name: shellSort_random_time
+Status: OK! Time: 0.587
+ Run #128|  Name: shellSort_ordered_time
+Status: OK! Time: 0.033
+ Run #129|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.137
+ Run #130|  Name: LSD_sort_random_time
+Status: OK! Time: 0.027
+ Run #131|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.028
+ Run #132|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.027
+ Run #133|  Name: stdQSort_random_time
+Status: OK! Time: 0.098
+ Run #134|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.040
+ Run #135|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.042
+
+----------------------------
+Size: 1000000
+ Run #136|  Name: mergeSort_random_time
+Status: OK! Time: 0.125
+ Run #137|  Name: mergeSort_ordered_time
+Status: OK! Time: 0.061
+ Run #138|  Name: mergeSort_orderedBackwards_time
+Status: OK! Time: 0.056
+ Run #139|  Name: combSort_random_time
+Status: OK! Time: 0.233
+ Run #140|  Name: combSort_ordered_time
+Status: OK! Time: 0.089
+ Run #141|  Name: combSort_orderedBackwards_time
+Status: OK! Time: 0.117
+ Run #142|  Name: shellSort_random_time
+Status: OK! Time: 0.759
+ Run #143|  Name: shellSort_ordered_time
+Status: OK! Time: 0.037
+ Run #144|  Name: shellSort_orderedBackwards_time
+Status: OK! Time: 0.184
+ Run #145|  Name: LSD_sort_random_time
+Status: OK! Time: 0.037
+ Run #146|  Name: LSD_sort_ordered_time
+Status: OK! Time: 0.033
+ Run #147|  Name: LSD_sort_orderedBackwards_time
+Status: OK! Time: 0.031
+ Run #148|  Name: stdQSort_random_time
+Status: OK! Time: 0.110
+ Run #149|  Name: stdQSort_ordered_time
+Status: OK! Time: 0.045
+ Run #150|  Name: stdQSort_orderedBackwards_time
+Status: OK! Time: 0.047
+
+----------------------------
+Size: 10000
+ Run #1|  Name: selectionSort_random_time
+Status: OK! Time: 0.068
+ Run #2|  Name: selectionSort_ordered_time
+Status: OK! Time: 0.065
+ Run #3|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 0.068
+ Run #4|  Name: insertionSort_random_time
+Status: OK! Time: 0.041
+ Run #5|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #6|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 0.082
+
+----------------------------
+Size: 20000
+ Run #7|  Name: selectionSort_random_time
+Status: OK! Time: 0.278
+ Run #8|  Name: selectionSort_ordered_time
+Status: OK! Time: 0.283
+ Run #9|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 0.282
+ Run #10|  Name: insertionSort_random_time
+Status: OK! Time: 0.174
+ Run #11|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #12|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 0.361
+
+----------------------------
+Size: 30000
+ Run #13|  Name: selectionSort_random_time
+Status: OK! Time: 0.615
+ Run #14|  Name: selectionSort_ordered_time
+Status: OK! Time: 0.587
+ Run #15|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 0.614
+ Run #16|  Name: insertionSort_random_time
+Status: OK! Time: 0.374
+ Run #17|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #18|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 0.787
+
+----------------------------
+Size: 40000
+ Run #19|  Name: selectionSort_random_time
+Status: OK! Time: 1.075
+ Run #20|  Name: selectionSort_ordered_time
+Status: OK! Time: 1.083
+ Run #21|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 1.088
+ Run #22|  Name: insertionSort_random_time
+Status: OK! Time: 0.662
+ Run #23|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #24|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 1.385
+
+----------------------------
+Size: 50000
+ Run #25|  Name: selectionSort_random_time
+Status: OK! Time: 1.711
+ Run #26|  Name: selectionSort_ordered_time
+Status: OK! Time: 1.685
+ Run #27|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 1.748
+ Run #28|  Name: insertionSort_random_time
+Status: OK! Time: 1.063
+ Run #29|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #30|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 2.112
+
+----------------------------
+Size: 60000
+ Run #31|  Name: selectionSort_random_time
+Status: OK! Time: 2.425
+ Run #32|  Name: selectionSort_ordered_time
+Status: OK! Time: 2.387
+ Run #33|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 2.497
+ Run #34|  Name: insertionSort_random_time
+Status: OK! Time: 1.528
+ Run #35|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #36|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 3.143
+
+----------------------------
+Size: 70000
+ Run #37|  Name: selectionSort_random_time
+Status: OK! Time: 3.287
+ Run #38|  Name: selectionSort_ordered_time
+Status: OK! Time: 3.273
+ Run #39|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 3.390
+ Run #40|  Name: insertionSort_random_time
+Status: OK! Time: 2.131
+ Run #41|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.001
+ Run #42|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 4.257
+
+----------------------------
+Size: 80000
+ Run #43|  Name: selectionSort_random_time
+Status: OK! Time: 4.326
+ Run #44|  Name: selectionSort_ordered_time
+Status: OK! Time: 4.255
+ Run #45|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 4.439
+ Run #46|  Name: insertionSort_random_time
+Status: OK! Time: 2.754
+ Run #47|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #48|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 5.483
+
+----------------------------
+Size: 90000
+ Run #49|  Name: selectionSort_random_time
+Status: OK! Time: 5.464
+ Run #50|  Name: selectionSort_ordered_time
+Status: OK! Time: 5.384
+ Run #51|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 5.601
+ Run #52|  Name: insertionSort_random_time
+Status: OK! Time: 3.470
+ Run #53|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #54|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 7.014
+
+----------------------------
+Size: 100000
+ Run #55|  Name: selectionSort_random_time
+Status: OK! Time: 6.830
+ Run #56|  Name: selectionSort_ordered_time
+Status: OK! Time: 6.665
+ Run #57|  Name: selectionSort_orderedBackwards_time
+Status: OK! Time: 7.243
+ Run #58|  Name: insertionSort_random_time
+Status: OK! Time: 4.335
+ Run #59|  Name: insertionSort_ordered_time
+Status: OK! Time: 0.000
+ Run #60|  Name: insertionSort_orderedBackwards_time
+Status: OK! Time: 8.683
+

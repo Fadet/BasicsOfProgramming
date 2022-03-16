@@ -14,7 +14,7 @@ void checkTime(void (*sortFunc)(int *, size_t),
 
     static size_t runCounter = 1;
 
-    int innerBuffer[100000];
+    int* innerBuffer = malloc(sizeof(int) * 100000);
     generateFunc(innerBuffer, size);
     fprintf(log_file, " Run #%zu| ", runCounter++);
     fprintf(log_file, " Name: %s\n", experimentName);
@@ -40,10 +40,12 @@ void checkTime(void (*sortFunc)(int *, size_t),
     } else {
         fprintf(log_file, "Wrong!\n");
 
-        outputArray(innerBuffer, size);
+        outputArrayFile(innerBuffer, size, log_file);
 
         exit(1);
     }
+
+    free(innerBuffer);
 }
 
 void timeExperiment() {
@@ -126,7 +128,7 @@ void checkCompares(long long int (*sortFunc)(int *, size_t),
     } else {
         fprintf(log_file, "Wrong!\n");
 
-        outputArray(innerBuffer, size);
+        outputArrayFile(innerBuffer, size, log_file);
 
         exit(1);
     }
